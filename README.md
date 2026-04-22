@@ -21,7 +21,7 @@ This repository currently tracks a **content and feature architecture** for a fu
    - Describe “turn-on” behavior through proportional coupling logic.
 
 4. **Transmutation Shortcut**
-   - Present Lithium/Helium-3 compression and Earth/Mars/Moon staged-upcycling ideas.
+   - Present Lithium/Helium-3 compression and Earth/Mars/Moon staged up-cycling ideas.
 
 5. **Universal Operational Code (1–114+)**
    - Provide full number-code dictionary and invocation model.
@@ -41,7 +41,7 @@ This repository currently tracks a **content and feature architecture** for a fu
    - Explain atomic stacks, voltage/frequency addressing, and bias-layer unlocking.
 
 10. **Nickel-Silver Computer & Frequency Battery**
-   - Specify 1 war nickel + 53 standard nickels concept and 152:1 stabilization ratio.
+   - Specify the concept of 1 wartime U.S. nickel (1942–1945 silver-alloy coin) + 53 standard nickels and the 152:1 stabilization ratio.
 
 11. **Hydrogen Stack & Ruby Lensing**
    - Explain water as carrier, hydrogen-stack model, and gemstone lensing role.
@@ -86,7 +86,7 @@ This repository currently tracks a **content and feature architecture** for a fu
 
 ## IV. Optional/Bonus Modules
 
-- Guided protocols (health room stabilizer, lens focus, environmental firewall)
+- Guided protocols (medical-environment stabilizer, lens focus, environmental firewall)
 - Scientific/metaphysical concordances
 - Safety/disclosure and ethics pages
 - Global resonant-grid visualizer and node sync explorer
