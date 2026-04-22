@@ -87,6 +87,8 @@ window.ROS = {
     const ratio  = massB / massA;
     const ratioStr = ratio.toFixed(4) + ' : 1';
 
+    // Snap voltage: logarithmic activation threshold scaled by 4.2V
+    // (empirical scaling factor: log-curve crosses ~1V at ratio=1.27, ~2V at ratio=4.3)
     const snapVoltage       = parseFloat((Math.log(ratio + 1) * 4.2).toFixed(2));
     const activationFreqHz  = Math.round(elemA.number * elemB.number * 0.847);
     const harmonicOrder     = Math.round(ratio * 2) / 2;

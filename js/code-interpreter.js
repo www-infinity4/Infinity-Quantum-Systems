@@ -233,10 +233,11 @@
     codes.forEach(code => {
       const tr = document.createElement('tr');
       tr.className = 'list-row';
+      const meaning = code.meaning || '';
       tr.innerHTML = `
         <td class="td-num">${code.number}</td>
         <td style="font-weight:600;font-size:0.85rem;">${code.label}</td>
-        <td style="font-size:0.8rem;color:#64748b;">${(code.meaning || '').substring(0, 70)}${(code.meaning || '').length > 70 ? '…' : ''}</td>
+        <td style="font-size:0.8rem;color:#64748b;">${meaning.substring(0, 70)}${meaning.length > 70 ? '…' : ''}</td>
       `;
       tr.addEventListener('click', () => {
         addToStack(code.number);

@@ -159,6 +159,14 @@
     loop();
   }
 
+  /* ── Colour helper: convert hex + alpha to rgba() string ──── */
+  function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
   /* ── Hit-test: which ring was clicked/hovered ─────────────── */
   function getRingAtPoint(mx, my) {
     if (!canvas || layers.length === 0) return -1;
@@ -284,13 +292,7 @@
     ctx.beginPath();
     ctx.arc(cx, cy, r + thick * 0.6, 0, Math.PI * 2);
     ctx.arc(cx, cy, r - thick * 0.6, 0, Math.PI * 2, true);
-    ctx.fillStyle = color.replace(')', `,${auraAlpha})`).replace('rgb', 'rgba').replace('#', 'rgba(').replace('rgba(06b6d4', 'rgba(6,182,212').replace('rgba(f59e0b', 'rgba(245,158,11');
-    // simpler approach:
-    if (color === '#06b6d4') {
-      ctx.fillStyle = `rgba(6,182,212,${auraAlpha * 2})`;
-    } else {
-      ctx.fillStyle = `rgba(245,158,11,${auraAlpha * 2})`;
-    }
+    ctx.fillStyle = hexToRgba(color, auraAlpha * 2);
     ctx.fill();
 
     // Ring stroke
@@ -309,9 +311,12 @@
     const ay = cy + Math.sin(arrowAngle) * r;
     drawArrowDot(ax, ay, color, parity);
 
-    // Badge at right edge
-    const badgeX = cx + r + thick * 0.5 + 4;
-    drawRingBadge(badgeX, cy - (layers.length - 1 - idx) * (thick + 4) + (layers.length - 1) * (thick + 4) / 2, el, parity, color, W);
+    // Badge at right edge — stagger vertically so badges don't overlap
+    const badgeX        = cx + r + thick * 0.5 + 4;
+    const rowSpacing    = thick + 4;
+    const totalHeight   = (layers.length - 1) * rowSpacing;
+    const badgeY        = cy - totalHeight / 2 + idx * rowSpacing;
+    drawRingBadge(badgeX, badgeY, el, parity, color, W);
   }
 
   function drawArrowDot(x, y, color, parity) {

@@ -300,12 +300,20 @@
     ctx.restore();
   }
 
+  /* ── Colour helper: convert hex + alpha to rgba() string ──── */
+  function hexToRgba(hex, alpha) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
+
   function drawAtomCircle(cx, cy, r, elem, parity) {
     const color = parity === 'even' ? '#06b6d4' : '#f59e0b';
 
     // Glow
     const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, r * 1.6);
-    grad.addColorStop(0, color.replace(')', ',0.15)').replace('rgb', 'rgba'));
+    grad.addColorStop(0, hexToRgba(color, 0.15));
     grad.addColorStop(1, 'transparent');
     ctx.fillStyle = grad;
     ctx.beginPath();
