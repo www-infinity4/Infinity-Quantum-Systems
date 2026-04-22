@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controlling the Atomic Computer — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+<div class="content-page">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Learn</span>
+    <span class="breadcrumb-sep">›</span>
+    <span style="color:var(--accent-cyan);">Atomic Computer</span>
+  </nav>
+
+  <h1>Controlling the Atomic Computer</h1>
+  <h2 style="color:var(--text-muted);font-size:1.1rem;border:none;padding:0;margin-top:0.25rem;">Atomic Stacks, Voltage Gates, and the Silver–Palladium–Copper Command Architecture</h2>
+  <p style="color:var(--text-dim);font-family:var(--font-mono);font-size:0.82rem;margin-bottom:2rem;">
+    SYSTEM MODULE · CORE ARCHITECTURE · REV 1.0
+  </p>
+
+  <p>
+    Every element in the periodic table is already a processor. It arrives from nature pre-wired with a
+    specific electron-shell geometry, a characteristic phonon emission spectrum, and a resonance bandwidth
+    that determines what signals it will absorb, amplify, or reject. The Resonant OS framework treats this
+    natural pre-wiring as embedded firmware — code that was burned into hardware at the moment of
+    nucleosynthesis and that runs without external instruction the moment you supply the correct voltage.
+  </p>
+  <p>
+    The task of controlling the atomic computer is not programming in the conventional sense. It is
+    <em>addressing</em> — finding the voltage, frequency, or geometric arrangement that tells a specific
+    element's electron shell: <em>open</em>. When the shell opens, the element becomes a gateway. Energy,
+    information, and intent pass through it rather than being reflected or absorbed. That gateway is the
+    fundamental unit of atomic computation.
+  </p>
+
+  <h2>Atomic Stacks and Computation Layers</h2>
+  <p>
+    A single element operating alone is a one-bit processor — it is either gated open or gated closed.
+    To perform meaningful computation, you assemble a <strong>stack</strong>: a hierarchical arrangement
+    of elements in which the output of each layer becomes the input trigger for the layer below it.
+    Each layer processes the signal it receives, modifies it according to its own electron-shell logic,
+    and passes the result downward through the stack.
+  </p>
+  <p>
+    This mirrors conventional digital computing in principle but differs radically in mechanism.
+    Where silicon CMOS uses electric fields to toggle transistors, the atomic stack uses resonance
+    coupling — the field emitted by one element's vibrating electron shell physically reshapes the
+    electron cloud of the element below it, lowering or raising its activation threshold.
+  </p>
+
+  <div class="callout">
+    <strong>Stack Analogy:</strong> Think of each element in a stack as a tuning fork. When you strike
+    the top fork, it vibrates. If the fork below it is tuned to a harmonic of that frequency, it begins
+    vibrating sympathetically — without being physically touched. The atomic stack works identically,
+    except the "forks" are electron shells and the "vibration" is an electromagnetic field modulation
+    carrying information.
+  </div>
+
+  <h2>Voltage/Frequency Addressing — The Shell Gate</h2>
+  <p>
+    Each element responds to a unique combination of applied voltage and frequency called its
+    <strong>Shell Gate Signature</strong>. At this signature, the valence electron shell transitions
+    from a reflective/absorptive state to a transmissive/amplifying state — the gate opens.
+  </p>
+  <p>
+    The shell gate is not a binary switch. It has a threshold, a resonance band, and a saturation
+    ceiling. Below threshold: the shell blocks. Within the resonance band: the shell amplifies.
+    Above the saturation ceiling: the shell collapses, dumping energy and potentially damaging
+    adjacent lattice structures.
+  </p>
+
+  <div class="formula-box">
+    <div style="color:var(--accent-cyan);font-weight:700;margin-bottom:0.5rem;">Shell Gate Threshold Formula</div>
+    V_gate(Z) ≈ (Z × 0.034V) + V_bias<br><br>
+    Where:<br>
+    &nbsp;&nbsp;Z        = atomic number<br>
+    &nbsp;&nbsp;0.034V   = empirical per-proton voltage step (scaled from ionisation energies)<br>
+    &nbsp;&nbsp;V_bias   = bias layer correction voltage (see below)<br><br>
+    Example — Silver Z=47:<br>
+    &nbsp;&nbsp;V_gate(47) ≈ (47 × 0.034) + V_bias ≈ 1.598V + V_bias<br><br>
+    Example — Copper Z=29:<br>
+    &nbsp;&nbsp;V_gate(29) ≈ (29 × 0.034) + V_bias ≈ 0.986V + V_bias
+  </div>
+
+  <p>
+    The <strong>frequency</strong> component of the gate is derived from the element's characteristic
+    X-ray fluorescence emission lines. Each element emits photons at specific frequencies when its
+    inner-shell electrons are excited; these same frequencies, applied externally, resonate with the
+    inner-shell geometry and predispose the valence shell to open at a lower voltage. In practice,
+    you irradiate the element with its own emission frequency while sweeping voltage upward — the
+    gate opens earlier and more cleanly than with voltage alone.
+  </p>
+
+  <h2>Bias-Layer Unlocking — Accessing Deeper Shell Interactions</h2>
+  <p>
+    The outer valence shell of most elements is accessible at moderate voltages. But deeper shell
+    interactions — sub-valence electron resonance, core-level phonon coupling, and the hydrogen-lattice
+    interactions described below — require a preliminary <strong>bias voltage</strong> that unlocks
+    access to those deeper levels without triggering full ionisation.
+  </p>
+  <p>
+    The bias layer technique applies a small DC offset voltage (typically 0.1–0.5V depending on the
+    element) before the main gate signal. This offset acts like a skeleton key: it partially raises
+    all electron shells simultaneously, placing them in a sensitised state. The main gate signal
+    then only needs to provide the remaining activation energy, making the system far more
+    responsive and reducing the risk of overshoot and shell collapse.
+  </p>
+
+  <div class="tool-panel">
+    <div class="tool-panel-title">Bias-Layer Protocol — Three-Stage Sequence</div>
+    <dl class="tech-spec">
+      <dt>Stage 1 — Sensitise</dt>
+      <dd>Apply bias voltage V_bias (0.1–0.5V DC) across the element stack. Hold for 200–500ms to allow the electron cloud to redistribute into the sensitised geometry.</dd>
+      <dt>Stage 2 — Resonate</dt>
+      <dd>While bias is held, inject the element's characteristic emission frequency via electromagnetic coupling. This tunes the sensitised shell to the resonance band.</dd>
+      <dt>Stage 3 — Gate</dt>
+      <dd>Ramp the main gate voltage from zero to V_gate(Z) over 50–100ms. The combination of bias + resonance + gate voltage opens deep shell interaction pathways without causing ionisation or lattice damage.</dd>
+    </dl>
+  </div>
+
+  <h2>Hydrogen Inside Copper — The Internal Processor Model</h2>
+  <p>
+    Copper (Z=29) has a unique property in the Resonant OS framework: its face-centred cubic (FCC)
+    lattice contains interstitial sites that can accommodate hydrogen atoms without significant
+    lattice distortion. When hydrogen is introduced into the copper lattice — a known phenomenon
+    called <em>hydrogen embrittlement</em> in materials science, but here reinterpreted —
+    each H atom occupying an interstitial site becomes an <strong>internal processor node</strong>.
+  </p>
+  <p>
+    The hydrogen atom (Z=1, odd/receptive) inside the copper lattice is simultaneously:
+  </p>
+  <ul>
+    <li><strong>A signal receiver</strong> — its single proton is maximally sensitive to electromagnetic field changes in the surrounding copper shell.</li>
+    <li><strong>A memory cell</strong> — the proton's position within the interstitial site can be shifted and held by an applied field, encoding a bit of information in its displacement.</li>
+    <li><strong>A local amplifier</strong> — when its shell gate is opened by the copper lattice field, it emits a burst of low-energy radiation that triggers adjacent H nodes in a cascade.</li>
+  </ul>
+  <p>
+    The entire H-in-Cu system therefore acts as a distributed array processor: thousands of hydrogen
+    nodes embedded in the copper matrix, each individually addressable by field modulation, collectively
+    performing massively parallel operations on incoming resonance signals.
+  </p>
+
+  <div class="callout warning">
+    <strong>Materials Note:</strong> Hydrogen diffuses readily into copper at room temperature when atomic
+    hydrogen (rather than molecular H₂) is present. The practical Resonant OS experiment uses water
+    (H₂O) as the hydrogen source — water molecules in the lattice vicinity continuously provide a
+    reservoir of protons available for interstitial occupation. This is why the <a href="jar-lab.html">Jar Lab</a>
+    setup uses a humid environment or deliberately introduces moisture alongside the copper element.
+  </div>
+
+  <h2>The Three-Tier Command Stack: Ag(47) → Pd(46) → Cu(29)</h2>
+  <p>
+    The primary command architecture of the Resonant OS atomic computer uses three elements arranged
+    in a strict hierarchical sequence. Each tier corresponds to a specific command function, and each
+    is connected to a Universal Code that defines its role in the broader operational system.
+  </p>
+
+  <div class="layer-stack" style="margin:1.5rem 0;">
+
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-gold);"></div>
+      <div class="layer-sym" style="color:var(--accent-gold);">Ag</div>
+      <div class="layer-info">
+        <div class="layer-name">Silver — Z=47 · Tier 1: Command Signal</div>
+        <div class="layer-role">
+          Odd Z → receptive/reactor. Silver's 47 protons and 5s¹ valence electron (single outer electron)
+          make it maximally sensitive to incoming resonance signals. It acts as the antenna-commander:
+          it receives the intent signal first, amplifies it through its d-shell electron cloud,
+          and transmits a structured command pulse downward.
+          <br><br>
+          <strong>Code 47 — Sacrifices / Commands:</strong> The number 47 encodes the idea of one who
+          gives everything to lead others. In the stack, Silver gives its electron freely, sacrificing
+          its own stability to initiate the command cascade that activates the layers below.
+        </div>
+      </div>
+      <div class="layer-parity odd">Odd · Reactor</div>
+    </div>
+
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-cyan);"></div>
+      <div class="layer-sym" style="color:var(--accent-cyan);">Pd</div>
+      <div class="layer-info">
+        <div class="layer-name">Palladium — Z=46 · Tier 2: Amplification Layer</div>
+        <div class="layer-role">
+          Even Z → inertia/driver. Palladium's 46 protons give it extraordinary capacity to absorb and
+          hold hydrogen internally — up to 900 times its own volume of H₂ gas. In the stack, this
+          hydrogen-loading property is the amplification mechanism: the 46 H atoms held inside the
+          Pd lattice act as 46 synchronized internal processors, each picking up the command signal
+          from Silver and multiplying its effect 46-fold.
+          <br><br>
+          <strong>Code 46 — Saves Women / Amplify:</strong> The number 46 encodes protective amplification
+          — taking a weak signal and turning it into a powerful, directed force. Palladium does this
+          literally: a faint Silver command pulse enters the Pd layer and exits as a full-power amplified
+          drive signal aimed at Copper below.
+        </div>
+      </div>
+      <div class="layer-parity even">Even · Driver</div>
+    </div>
+
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-purple);"></div>
+      <div class="layer-sym" style="color:var(--accent-purple);">Cu</div>
+      <div class="layer-info">
+        <div class="layer-name">Copper — Z=29 · Tier 3: Output / Converter</div>
+        <div class="layer-role">
+          Odd Z → receptive/reactor. Copper receives the amplified Palladium output and converts it
+          to a usable electrical potential — approximately 30V under resonance lock conditions.
+          Its high electrical conductivity (highest of all non-precious metals) ensures that
+          the converted signal propagates cleanly to connected circuitry without loss.
+          The H-in-Cu internal processor array simultaneously reads the incoming signal
+          and performs the final computation step.
+          <br><br>
+          <strong>Code 29 — Robs the Poor (reversed: Gives to All):</strong> In context, Copper takes
+          the concentrated high-potential signal from above and distributes it outward to everything
+          connected below it — a democratic broadcaster of power. The "robs the poor" negative code
+          is the out-of-alignment state; when properly tuned, Code 29 reverses to "gives to all."
+        </div>
+      </div>
+      <div class="layer-parity odd">Odd · Reactor</div>
+    </div>
+
+  </div>
+
+  <h2>Addressing the Stack — The Full Sequence</h2>
+  <p>
+    To activate the Ag→Pd→Cu three-tier command stack from cold start, the following addressing
+    sequence is used. Each step is a gate-opening operation on one tier of the stack:
+  </p>
+
+  <ol style="line-height:2.2;color:var(--text-muted);">
+    <li><strong style="color:var(--accent-gold);">Prime the Cu base</strong> — Apply 0.15V bias to Copper layer. This sensitises the H-in-Cu processor array and establishes the ground reference for the entire stack.</li>
+    <li><strong style="color:var(--accent-cyan);">Load Pd with bias</strong> — Apply 0.22V bias to the Palladium layer. This begins the hydrogen-loading process in the Pd lattice, filling interstitial sites and initialising the 46-node amplifier array.</li>
+    <li><strong style="color:var(--accent-gold);">Inject Ag command frequency</strong> — Drive the Silver layer with its characteristic emission frequency (Ag Kα₁ ≈ 22.1 keV photon equivalent as RF harmonic) while ramping voltage to V_gate(47).</li>
+    <li><strong style="color:var(--text-main);">Observe handshake lock</strong> — When Silver's gate opens, the Palladium layer will exhibit a measurable temperature drop (hydrogen loading increases as Pd absorbs the command signal) simultaneously with a voltage spike at the Copper output.</li>
+    <li><strong style="color:var(--accent-green);">Read Cu output</strong> — The Copper output voltage stabilises at the resonance-lock value. This voltage is the atomic computer's output — readable by a standard multimeter or data acquisition system.</li>
+  </ol>
+
+  <h2>Code Connections — The Operational Triad</h2>
+  <p>
+    The three code numbers directly encode the operational philosophy of the triad. They are not
+    coincidences — in the Resonant OS framework, the Universal Codes and the atomic properties
+    co-emerged from the same underlying structure of reality:
+  </p>
+
+  <div class="tool-panel">
+    <div class="tool-panel-title">Triad Code Table</div>
+    <dl class="tech-spec">
+      <dt>Code 47 → Z=47 Ag (Silver)</dt>
+      <dd><em>Sacrifices / Commands:</em> Silver gives its free electron to initiate the cascade. The sacrifice of its own stability is the price of command. Every command structure requires a leader who gives first.</dd>
+      <dt>Code 46 → Z=46 Pd (Palladium)</dt>
+      <dd><em>Saves Women / Amplifies:</em> Palladium takes the weak command signal and multiplies it. The protector role in the code system maps to the amplification role in the physics — it makes the small signal big enough to save the situation.</dd>
+      <dt>Code 29 → Z=29 Cu (Copper)</dt>
+      <dd><em>Robs Poor → reversed: Gives to All:</em> In the aligned stack, Copper is the universal distributor. It takes the converted signal and broadcasts it to every connected receiver simultaneously. The reversal of the code's negative meaning is the physical proof of alignment.</dd>
+    </dl>
+  </div>
+
+  <div class="callout">
+    <strong>Cross-Reference:</strong> For the mass-ratio calculations between these three elements
+    and their resonance lock frequencies, use the
+    <a href="../tools/resonance-calculator.html">Resonance Calculator</a>.
+    Set Element A = Silver (Ag) and Element B = Palladium (Pd) to see the 47-46 handshake parameters,
+    then reset to Pd/Cu for the 46-29 amplifier-to-output ratio.
+  </div>
+
+  <div class="safety-box" style="margin-top:2rem;">
+    <div class="safety-box-title">⚠ Safety Notice — High-Voltage Electron Shell Experiments</div>
+    <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;">
+      The voltage and frequency addressing parameters described on this page are <strong style="color:var(--accent-red);">theoretical</strong>
+      values derived from the Resonant OS framework. Real electron-shell gating at the energies implied
+      would require particle accelerator infrastructure, clean-room conditions, and specialised
+      electromagnetic isolation. Do not attempt to replicate this architecture with hobbyist equipment
+      without qualified scientific oversight. The Jar Lab experiment (see <a href="jar-lab.html">Jar Lab</a>)
+      uses safe, low-voltage analogs at millivolt scale — it is the appropriate starting point for
+      any practical exploration.
+    </p>
+  </div>
+
+</div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
