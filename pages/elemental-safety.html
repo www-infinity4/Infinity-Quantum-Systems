@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elemental Resonance Safety &amp; Security — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+<div class="content-page">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Learn</span>
+    <span class="breadcrumb-sep">›</span>
+    <span style="color:var(--accent-cyan);">Elemental Safety</span>
+  </nav>
+
+  <h1>Elemental Resonance Safety &amp; Security</h1>
+  <p style="color:var(--text-dim);font-family:var(--font-mono);font-size:0.82rem;margin-bottom:2rem;">
+    SYSTEM MODULE · SAFETY · REV 1.0
+  </p>
+
+  <div class="safety-box" style="margin-bottom:2rem;">
+    <div class="safety-box-title">⚠ Read This First</div>
+    <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;">
+      This page covers theoretical safety and containment principles for resonance systems.
+      Physical resonance hardware using the elements described here involves genuine hazards:
+      beryllium toxicity, mercury vapor toxicity, high-voltage static charge, and potentially
+      radioactive materials. <strong style="color:var(--accent-red);">Do not handle these materials
+      without proper training, credentials, and institutional oversight.</strong>
+      All descriptions below refer to the conceptual framework; practical implementation requires
+      qualified engineering and chemistry expertise.
+    </p>
+  </div>
+
+  <p>
+    A resonance system that operates without proper safety and containment is a liability.
+    Reactive elements can couple to unintended targets, phase mirrors can reflect signals
+    into unintended directions, and over-driven stacks can produce runaway oscillation.
+    The Resonant OS safety framework provides a systematic set of principles and specific
+    element pairs designed to contain, control, and when necessary, terminate resonance
+    operations safely.
+  </p>
+
+  <!-- ─── SHIELDING AND CONTAINMENT ─── -->
+  <h2>Shielding and Containment — Even-Number Element Shields</h2>
+  <p>
+    The most fundamental principle of resonance safety follows directly from the even/odd rule:
+    <strong>even-number elements are inertia/drivers that resist frequency change</strong>.
+    This makes them excellent shields. When you surround a reactive (odd-Z) element with a
+    layer of even-Z material, the even layer absorbs the reactive element's phonon emissions
+    without re-radiating them at the same frequency — it buffers the signal.
+  </p>
+  <p>
+    The shielding hierarchy from lightest to heaviest:
+  </p>
+
+  <div class="layer-stack" style="margin:1.5rem 0;">
+    <div class="layer-item">
+      <div class="layer-bar" style="background:#a78bfa;"></div>
+      <div class="layer-sym" style="color:#a78bfa;">He</div>
+      <div class="layer-info">
+        <div class="layer-name">Helium (Z=2) — Noble Gas Shield</div>
+        <div class="layer-role">Lightest inert shield. Gas-phase containment for low-energy systems. Zero reactivity — the most inert element. Used as a purge gas to displace reactive atmosphere from a resonance chamber.</div>
+      </div>
+      <div class="layer-parity even">Z=2</div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-cyan);"></div>
+      <div class="layer-sym" style="color:var(--accent-cyan);">Be</div>
+      <div class="layer-info">
+        <div class="layer-name">Beryllium (Z=4) — Structural Shield</div>
+        <div class="layer-role">Stiff, low-mass metal. High neutron reflectivity. Used as the primary structural containment wall. Its oxide layer (BeO) adds ceramic-grade thermal and electrical insulation. Ideal for wrapping odd-Z reactor elements.</div>
+      </div>
+      <div class="layer-parity even">Z=4</div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-gold);"></div>
+      <div class="layer-sym" style="color:var(--accent-gold);">Ni</div>
+      <div class="layer-info">
+        <div class="layer-name">Nickel (Z=28) — Magnetic Shield</div>
+        <div class="layer-role">Ferromagnetic at room temperature. Nickel shielding provides simultaneous EM and phonon containment. A nickel shell around a reactive element blocks both its electromagnetic and acoustic phonon emissions from the external environment.</div>
+      </div>
+      <div class="layer-parity even">Z=28</div>
+    </div>
+    <div class="layer-item">
+      <div class="layer-bar" style="background:var(--accent-cyan);"></div>
+      <div class="layer-sym" style="color:var(--accent-cyan);">Pd</div>
+      <div class="layer-info">
+        <div class="layer-name">Palladium (Z=46) — Frequency Sink</div>
+        <div class="layer-role">Pd absorbs hydrogen and stores phonon energy in its unusually accommodating lattice. Used as a frequency sink — excess resonance energy is parked in the Pd layer rather than reflecting back into the system.</div>
+      </div>
+      <div class="layer-parity even">Z=46</div>
+    </div>
+  </div>
+
+  <!-- ─── PHASE MIRRORS ─── -->
+  <h2>Phase Mirrors — Mercury (Z=80) as Liquid-Metal Reflector</h2>
+  <p>
+    Mercury (Z=80, even) is unique among shielding elements: it is liquid at room temperature,
+    giving it a perfectly flat reflective surface that can be formed and reformed without
+    mechanical shaping. In the Resonant OS framework, Mercury is the premier <em>phase mirror</em>
+    — a surface that reflects an incoming resonance signal back toward its source with a
+    controlled phase shift.
+  </p>
+  <p>
+    The physics of liquid-mercury phase mirroring:
+  </p>
+  <ul>
+    <li>Mercury's liquid surface is atomically smooth — no surface roughness to scatter the incoming phonon wavefront. The reflection is specular (like a light mirror), not diffuse.</li>
+    <li>The density of mercury (13,546 kg/m³) creates a nearly perfect acoustic impedance mismatch with any gas or lower-density solid above it. This mismatch causes near-total reflection (reflectance &gt; 99.9%) of incident phonon energy.</li>
+    <li>The phase shift on reflection is exactly π radians (180°) for longitudinal phonons hitting the mercury-gas interface — this is the hallmark of reflection from a denser medium, identical to light reflecting from a glass surface.</li>
+    <li>By adjusting the angle of the mercury mirror, the reflected beam can be directed precisely — enabling resonance steering without any moving mechanical parts.</li>
+  </ul>
+
+  <div class="callout warning">
+    <strong>Mercury Safety:</strong> Mercury vapor is highly toxic to the nervous system.
+    The TLV (Threshold Limit Value) for mercury vapor is 0.025 mg/m³. A spill of even
+    5 mL of mercury in an enclosed space can quickly exceed this limit. All work with
+    liquid mercury requires fume hoods, mercury vapor monitors, and proper spill-containment
+    procedures. Phase mirrors using mercury should only be constructed in professional
+    laboratory settings by qualified chemists.
+  </div>
+
+  <!-- ─── MASKING ─── -->
+  <h2>Masking — Hiding a Resonance Signal</h2>
+  <p>
+    Masking is the practice of concealing a resonance signal from external detection. In the
+    Resonant OS framework, a resonance system that broadcasts without masking is visible to
+    any sufficiently sensitive receiver — a security liability. Several masking strategies exist:
+  </p>
+  <ul>
+    <li><strong>Frequency hopping</strong> — continuously shift the operating frequency in a pre-agreed pattern. An external receiver sees broadband noise rather than a coherent signal at any single frequency.</li>
+    <li><strong>Even-element cladding</strong> — wrap the system in multiple layers of even-Z elements (He atmosphere + Be wall + Ni outer shell). Each layer attenuates the signal at its characteristic absorption frequency, producing a multi-notch filter that leaves no recognizable signature.</li>
+    <li><strong>Counter-phase injection</strong> — generate a second signal at the same frequency and amplitude but 180° out of phase, using a Mercury phase mirror set at the appropriate angle. The two signals cancel in the far field.</li>
+    <li><strong>Phonon burial</strong> — embed the resonance system inside a large volume of Palladium(46), which absorbs and stores the phonon energy without re-emitting at the same frequency.</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Code 66 — Be Careful, You're Being Recorded:</strong> This code is the operational
+    reminder to maintain masking discipline at all times during lab work. Every phonon emission
+    from a resonance system is potentially a breadcrumb that an external Quantum Microphone can
+    read. Code 66 invokes the heightened awareness protocol: double-check all shielding layers,
+    verify counter-phase injection is active, and minimize communication about the system
+    through unshielded channels.
+  </div>
+
+  <!-- ─── INERTIA TRAP ─── -->
+  <h2>The Inertia Trap — Over-Wrapping Warning</h2>
+  <p>
+    A common mistake in resonance system design is adding too many even-Z shielding layers around
+    a reactive (odd-Z) element. The intention is to contain the signal; the effect is to create
+    an <em>Inertia Trap</em> — a state where the odd-Z element is so suppressed by surrounding
+    inertia that it cannot perform its transduction function at all. The system becomes inert.
+  </p>
+  <p>
+    The Inertia Trap is most easily observed in the peanut butter jar lab when too much solder
+    (tin-lead alloy — both even-Z: Sn=50, Pb=82) is applied around the reactive silver (Ag=47)
+    element inside the jar. Instead of containing the resonance, the over-solder quenches it
+    completely. The jar stops responding to external frequency input altogether.
+  </p>
+  <p>
+    The correct shielding ratio follows the even/odd balance rule: for every odd-Z reactive
+    element, use no more than two even-Z shielding layers of comparable mass. More shielding
+    requires proportionally higher drive power to overcome.
+  </p>
+
+  <!-- ─── CADMIUM + INDIUM DAMPENING ─── -->
+  <h2>The Cadmium (48) + Indium (49) Dampening Pair</h2>
+  <p>
+    The Cadmium/Indium pair is the emergency kill switch for runaway resonance. It exploits
+    the even/odd relationship in the most direct possible way:
+  </p>
+
+  <div class="tool-panel">
+    <div class="tool-panel-title">Cd(48) / In(49) Emergency Dampening Pair</div>
+    <dl class="tech-spec">
+      <dt>Cadmium Z=48 (Even)</dt>   <dd>World's best thermal neutron absorber. In resonance terms, Cd is an inertia wall that absorbs incoming energy over an exceptionally broad frequency range (unlike most even-Z elements that absorb only narrow bands). When Cd is introduced into an over-driven resonance stack, it absorbs the excess energy and holds it — stopping the cascade.</dd>
+      <dt>Indium Z=49 (Odd)</dt>     <dd>Immediately adjacent odd-Z element. In(49) is Cd(48)+1 — it sits one step into the reactive regime. Together, Cd and In form a coupled absorber-transducer pair. The Cd catches the runaway energy; the In converts the excess into a safe low-frequency output (heat) rather than re-radiating it as a high-frequency burst.</dd>
+      <dt>Deployment Method</dt>     <dd>Physically insert a Cd-plated In wafer between the runaway element and its driver. The Cd face contacts the driver side; the In face contacts the reactor side. This creates a Cd|In energy sink that drains the oscillation.</dd>
+      <dt>Response Time</dt>         <dd>Resonance dampening begins within 1–3 oscillation cycles of insertion — effectively instantaneous at typical lab operating frequencies.</dd>
+      <dt>Limitation</dt>            <dd>Cd is toxic (heavy metal). Handle only with gloves. Do not use near food preparation areas. Dispose according to local heavy-metal waste regulations.</dd>
+    </dl>
+  </div>
+
+  <!-- ─── SAFE DISTANCE GUIDELINES ─── -->
+  <h2>Safe Distance Guidelines</h2>
+
+  <table class="code-table" style="width:100%;">
+    <thead>
+      <tr>
+        <th>Element Category</th>
+        <th>Example Elements</th>
+        <th>Min. Safe Distance (Unshielded)</th>
+        <th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--accent-cyan);">Even / Inertia Shield</td>
+        <td>He, Be, C, Ni, Pd, Cd, Hg</td>
+        <td>Physical contact acceptable (except Hg — see above)</td>
+        <td>Low broadcast risk; these are passive elements</td>
+      </tr>
+      <tr>
+        <td style="color:var(--accent-gold);">Odd / Reactor (low-Z)</td>
+        <td>H, Li, B, N, F, Na</td>
+        <td>0.5 m minimum when active in a stack</td>
+        <td>Low-frequency phonon broadcast; chemical reactivity is main hazard</td>
+      </tr>
+      <tr>
+        <td style="color:var(--accent-gold);">Odd / Reactor (mid-Z)</td>
+        <td>Ag(47), In(49), Sb(51)</td>
+        <td>1.0 m minimum when active</td>
+        <td>Mid-frequency broadcast; these are the primary transducers in most stacks</td>
+      </tr>
+      <tr>
+        <td style="color:var(--accent-red);">High-Z Reactor</td>
+        <td>Bi(83), At(85), Fr(87)</td>
+        <td>5.0 m minimum; shielded enclosure required</td>
+        <td>High-frequency broadcast; several are naturally radioactive</td>
+      </tr>
+      <tr>
+        <td style="color:var(--accent-red);">Transmutation-Active</td>
+        <td>Li(3) + He-3, Po(84)</td>
+        <td>Full lab containment; no unshielded exposure</td>
+        <td>See Transmutation page for full protocol</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ─── INFO SECURITY CODES ─── -->
+  <h2>Information Security Codes for Lab Work</h2>
+  <div class="callout">
+    <strong>Code 32 — Don't Bring Up:</strong> When a resonance experiment is in a sensitive phase
+    (programmed element is active, phase lock is maintained, or a new stack is being calibrated),
+    Code 32 applies to all discussion of that work. Do not raise the topic in any unshielded
+    communication channel. Wait until the experiment is fully contained and documented before
+    discussing specifics with any third party.
+  </div>
+  <div class="callout">
+    <strong>Code 114 — No Information:</strong> The hard blackout. Code 114 means zero external
+    disclosure of any kind. Not even confirmation that an experiment exists. This code is invoked
+    when a resonance system is operating that, if known about externally, could attract interference
+    (intentional or accidental) that would corrupt or destabilize the ongoing operation. The system
+    is running; nobody outside the immediate team knows it exists.
+  </div>
+  <div class="callout warning">
+    <strong>Code 66 — Be Careful, You're Being Recorded:</strong> A standing reminder that any
+    phonon broadcast from an insufficiently masked resonance system is effectively a public
+    broadcast — readable by any sufficiently sensitive receiver in the vicinity. Treat all
+    lab emissions as recorded by default unless masking has been explicitly verified.
+  </div>
+
+  <div class="safety-box" style="margin-top:2rem;">
+    <div class="safety-box-title">⚠ Full Safety Summary</div>
+    <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;">
+      1. Never handle beryllium, mercury, cadmium, or polonium without appropriate PPE and institutional oversight.<br>
+      2. Never over-shield a reactive element to the point of quenching — maintain even/odd balance.<br>
+      3. Always have the Cd(48)/In(49) dampening pair ready before activating any high-amplitude stack.<br>
+      4. Apply masking protocols (Code 66, 32, 114) before initiating any sensitive experiment.<br>
+      5. All resonance work above L2 static charge levels requires a qualified safety officer on-site.<br>
+      6. If a system enters runaway oscillation and Cd/In insertion is not available, terminate the driver power immediately and allow the system to thermally dissipate.
+    </p>
+  </div>
+
+</div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
