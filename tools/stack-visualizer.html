@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Visualizer — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Stack Visualizer</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Stack Visualizer</h1>
+      <p>Build layered element stacks and inspect parity, hull role, and code linkage by ring.</p>
+    </header>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Controls</div>
+      <div class="canvas-controls">
+        <select id="elemSelect" aria-label="Select element"></select>
+        <button id="addLayerBtn" class="btn btn-primary">Add Layer</button>
+        <button id="clearAllBtn" class="btn btn-ghost">Clear</button>
+        <button id="exportCanvasBtn" class="btn btn-secondary">Export PNG</button>
+      </div>
+      <div id="presetBtns" class="preset-row"></div>
+    </section>
+
+    <section class="tool-panel" style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1rem;align-items:start;">
+      <div>
+        <div class="viz-canvas-wrap">
+          <canvas id="stackCanvas" class="viz-canvas" width="700" height="500" aria-label="Stack visualization canvas"></canvas>
+        </div>
+        <div id="legendPanel"></div>
+      </div>
+      <aside id="layerSidePanel" class="side-panel">
+        <p style="color:#475569;font-style:italic;font-size:0.85rem;">Click a ring on the canvas to view element details.</p>
+      </aside>
+    </section>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/stack-visualizer.js"></script>
+</body>
+</html>

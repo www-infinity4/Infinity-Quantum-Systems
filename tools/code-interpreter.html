@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Interpreter — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Code Interpreter</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Code Interpreter</h1>
+      <p>Build numeric stacks, inspect code meanings, and interpret chain-of-command behavior.</p>
+    </header>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Stack Builder</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="codeInput">Code Number</label>
+          <input id="codeInput" type="number" min="0" max="999" placeholder="e.g. 53">
+        </div>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem;">
+        <button id="addBtn" class="btn btn-primary">Add</button>
+        <button id="cancelBtn" class="btn btn-danger">Append Cancel (0)</button>
+        <button id="clearBtn" class="btn btn-ghost">Clear</button>
+        <button id="copyBtn" class="btn btn-secondary">Copy Stack</button>
+        <button id="exportBtn" class="btn btn-gold">Export</button>
+      </div>
+      <div id="exampleBtns" class="preset-row"></div>
+      <div id="stackChain" class="stack-chain"></div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Lookup</div>
+      <div class="result-grid">
+        <div class="result-box">
+          <div class="result-label">Code</div>
+          <div id="lookupNum" class="result-val">—</div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Counterpart</div>
+          <div id="lookupCounterpart" class="result-line">—</div>
+        </div>
+      </div>
+      <div style="margin-top:1rem;">
+        <div class="result-label">Label</div>
+        <div id="lookupLabel" class="result-line">—</div>
+      </div>
+      <div style="margin-top:0.6rem;">
+        <div class="result-label">Meaning</div>
+        <div id="lookupMeaning" class="result-line">—</div>
+      </div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Chain Interpretation</div>
+      <div id="chainDisplay"></div>
+      <hr class="divider">
+      <div class="result-label">Combined Interpretation</div>
+      <div id="interpretDisplay" class="result-line"></div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Reference Table</div>
+      <div class="search-input-wrap" style="margin-bottom:0.75rem;">
+        <span class="search-icon">⌕</span>
+        <input id="refSearch" type="search" placeholder="Search by number, label, or meaning">
+      </div>
+      <div class="scroll-list">
+        <table class="code-table sticky-header">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Label</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody id="refTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/code-interpreter.js"></script>
+</body>
+</html>
