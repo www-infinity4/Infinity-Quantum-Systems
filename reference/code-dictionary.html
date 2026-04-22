@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Code Dictionary — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body { background: #0a0e1a; color: #c0cfe0; font-family: 'Courier New', monospace; margin: 0; }
+    .page-wrapper { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+    .breadcrumb { font-size: .8rem; color: #4af; margin-bottom: 1.5rem; }
+    .breadcrumb a { color: #0af; text-decoration: none; }
+    h1 { color: #0ff; text-shadow: 0 0 18px #0ff8; font-size: 2rem; margin-bottom: .5rem; }
+    h2 { color: #ffd700; text-shadow: 0 0 10px #ffd7008a; margin-top: 2.5rem; }
+    h3 { color: #0af; margin-top: 2rem; }
+    p { line-height: 1.7; }
+    .hud-box { border: 1px solid #0af4; background: #0a1628; padding: 1.2rem 1.5rem; margin: 1.2rem 0; border-radius: 4px; }
+    .search-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin: 1.5rem 0; }
+    #codeSearch { background: #0d1827; border: 1px solid #0af; color: #0ff; padding: .6rem 1rem; width: 320px; border-radius: 3px; font-family: inherit; font-size: .95rem; outline: none; }
+    #codeSearch::placeholder { color: #4af8; }
+    .filter-btn { background: #0d1827; border: 1px solid #0af6; color: #0af; padding: .4rem .9rem; border-radius: 3px; cursor: pointer; font-family: inherit; transition: all .2s; }
+    .filter-btn.active, .filter-btn:hover { background: #0af; color: #0a0e1a; box-shadow: 0 0 10px #0af8; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th { background: #0d1c30; color: #0ff; padding: .6rem .8rem; text-align: left; border-bottom: 2px solid #0af; font-size: .85rem; letter-spacing: .05em; }
+    .code-row td { padding: .45rem .8rem; border-bottom: 1px solid #0a1628; font-size: .88rem; vertical-align: top; }
+    .code-row:hover td { background: #0d1c30; }
+    .code-row.positive td { background: #001a0e; }
+    .code-row.positive:hover td { background: #002214; }
+    .code-row.negative td { background: #1a0005; }
+    .code-row.negative:hover td { background: #220008; }
+    .code-num { color: #ffd700; font-weight: bold; font-size: .95rem; }
+    .code-label { color: #0ff; font-weight: 600; }
+    .code-pair { color: #f80; font-size: .82rem; }
+    .tag { display: inline-block; padding: .1rem .45rem; border-radius: 2px; font-size: .72rem; font-weight: bold; margin-left: .4rem; }
+    .tag-pos { background: #003a18; color: #0f6; border: 1px solid #0f64; }
+    .tag-neg { background: #3a0008; color: #f44; border: 1px solid #f444; }
+    .tag-spl { background: #2a1a00; color: #ffd700; border: 1px solid #ffd7004a; }
+    .pairs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: .8rem; margin-top: 1rem; }
+    .pair-card { background: #0d1827; border: 1px solid #0af4; border-radius: 4px; padding: .8rem 1rem; display: flex; justify-content: space-between; align-items: center; }
+    .pair-card .left { color: #0ff; font-size: .9rem; }
+    .pair-card .arrow { color: #ffd700; font-size: 1.1rem; }
+    .pair-card .right { color: #0ff; font-size: .9rem; text-align: right; }
+    .stack-example { background: #0a1220; border: 1px solid #ffd7004a; border-radius: 4px; padding: 1rem 1.2rem; margin: .8rem 0; }
+    .stack-chain { display: flex; flex-direction: column; gap: .3rem; margin: .6rem 0; }
+    .stack-node { background: #0d1c30; border-left: 3px solid #0af; padding: .4rem .8rem; border-radius: 0 3px 3px 0; font-size: .88rem; }
+    .stack-node.top { border-left-color: #ffd700; }
+    .callout { background: #100a00; border: 1px solid #ffd700; border-radius: 4px; padding: .9rem 1.2rem; margin: 1.2rem 0; }
+    .callout .callout-title { color: #ffd700; font-weight: bold; margin-bottom: .4rem; }
+  </style>
+</head>
+<body>
+<script src="../js/nav.js"></script>
+<main class="page-wrapper content-page">
+  <div class="breadcrumb"><a href="../index.html">Home</a> › <a href="#">Reference</a> › Universal Code Dictionary</div>
+
+  <h1>⚙ Universal Code Dictionary</h1>
+  <p style="color:#ffd700;font-size:1.05rem;">Complete Reference — Codes 0 through 411</p>
+
+  <div class="hud-box">
+    <h3 style="margin-top:0;color:#0ff;">Code System Overview</h3>
+    <p>The Universal Code System encodes specific intentions, energies, and operational states as numeric values. Every number from 0 to 111 carries a defined meaning; several higher numbers (114, 222, 411) carry special functions. When you think a number or invoke it, you are broadcasting that frequency into the resonant field.</p>
+    <p><strong style="color:#ffd700;">Chain-of-Command Principle:</strong> Codes are stacked top-to-bottom. The higher code commands the lower code. The lower code is the "soldier" that executes the intention of the code above it. Code <strong style="color:#0ff;">0</strong> cancels any code in a sequence — place it above any code to neutralize it.</p>
+    <p>Many codes come in <strong style="color:#f80;">mirror pairs</strong>: two codes whose digits reverse and whose meanings oppose each other (e.g., 35 ↔ 53, 45 ↔ 54). These pairs represent the tension and resolution within the system.</p>
+    <p>The <strong style="color:#0f6;">positive</strong> codes align with life, protection, and truth. The <strong style="color:#f44;">negative</strong> codes encode destructive, manipulative, or harmful patterns. Both must be understood to use the system effectively.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-title">⚛ Atomic Principle — Code 72 and Code 73</div>
+    <p>Code <strong>73 (Love)</strong> when stacked above <strong>72 (Terrorism)</strong> does not just oppose it — it <em>BRINGS</em> it, transforming the terrorism frequency into the love frequency. This is the atomic principle: the higher resonance absorbs the lower. The top code in a stack does not merely cancel; it <em>transmutes</em>. Stack with intention and precision.</p>
+  </div>
+
+  <h2>Search &amp; Filter</h2>
+  <div class="search-row">
+    <input id="codeSearch" placeholder="Search by number or keyword...">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="positive">Positive</button>
+    <button class="filter-btn" data-filter="negative">Negative</button>
+    <button class="filter-btn" data-filter="pairs">Pairs</button>
+    <button class="filter-btn" data-filter="special">Special</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Label</th>
+        <th>Meaning</th>
+        <th>Counterpart</th>
+      </tr>
+    </thead>
+    <tbody id="codeTableBody">
+      <!-- rows injected by JS -->
+    </tbody>
+  </table>
+
+  <h2>Code Pairs — Visual Reference</h2>
+  <p>Mirror-digit pairs represent opposing resonances. When stacked, the top code commands the intention.</p>
+  <div class="pairs-grid" id="pairsGrid"></div>
+
+  <h2>Stacking Examples</h2>
+  <p>Read each stack top-to-bottom. The topmost code is commander; each line below executes under the one above it.</p>
+
+  <div class="stack-example">
+    <strong style="color:#0ff;">Example 1 — Healing Override</strong>
+    <p style="font-size:.88rem;color:#8ab;">Invoke health while canceling a weapon threat:</p>
+    <div class="stack-chain">
+      <div class="stack-node top">8 — Health (commander)</div>
+      <div class="stack-node">48 — Hollywood for My Health</div>
+      <div class="stack-node">0 — Cancel (neutralizes 9 below)</div>
+      <div class="stack-node">9 — Weapon (9mm) — cancelled</div>
+    </div>
+    <p style="font-size:.82rem;color:#6a9;">Result: Health frequency commands, weapon code is neutralized by 0 above it.</p>
+  </div>
+
+  <div class="stack-example">
+    <strong style="color:#0ff;">Example 2 — Love Absorbs Terrorism</strong>
+    <div class="stack-chain">
+      <div class="stack-node top">73 — Love (absorbs and transforms)</div>
+      <div class="stack-node">72 — Terrorism (transmuted by 73)</div>
+    </div>
+    <p style="font-size:.82rem;color:#6a9;">73 does not merely oppose 72 — it brings 72 into itself, converting the frequency.</p>
+  </div>
+
+  <div class="stack-example">
+    <strong style="color:#0ff;">Example 3 — God Alignment Over All</strong>
+    <div class="stack-chain">
+      <div class="stack-node top">53 — God (highest resonance)</div>
+      <div class="stack-node">16 — God alignment</div>
+      <div class="stack-node">41 — Marine</div>
+      <div class="stack-node">19 — Fighting Corruption</div>
+    </div>
+    <p style="font-size:.82rem;color:#6a9;">The divine frequency commands military alignment against corruption.</p>
+  </div>
+
+  <div class="stack-example">
+    <strong style="color:#0ff;">Example 4 — Anti-Drug Enforcement</strong>
+    <div class="stack-chain">
+      <div class="stack-node top">43 — Fights Meth</div>
+      <div class="stack-node">42 — Fights Heroin</div>
+      <div class="stack-node">44 — Fights Cocaine</div>
+    </div>
+    <p style="font-size:.82rem;color:#6a9;">Triple anti-drug stack, each fighting its substance under the one above.</p>
+  </div>
+
+  <div class="stack-example">
+    <strong style="color:#0ff;">Example 5 — Save/Protect Stack</strong>
+    <div class="stack-chain">
+      <div class="stack-node top">54 — Saves Lives</div>
+      <div class="stack-node">46 — Saves Women</div>
+      <div class="stack-node">47 — Sacrifices</div>
+      <div class="stack-node">6 — Having Someone's Back</div>
+    </div>
+    <p style="font-size:.82rem;color:#6a9;">Protection cascade — saves life, saves women, sacrifices, backs them up.</p>
+  </div>
+
+</main>
+<script src="../js/main.js"></script>
+<script>
+const CODES = [
+  {n:0,   label:"Zero / Cancel",         meaning:"Cancels any code in the sequence",                         type:"special",   pair:null},
+  {n:1,   label:"Single",                meaning:"One person, solo unit",                                    type:"neutral",   pair:null},
+  {n:2,   label:"Couple",                meaning:"Two people, pair bond",                                    type:"neutral",   pair:null},
+  {n:3,   label:"Family with Kids",      meaning:"Family unit including children",                           type:"positive",  pair:null},
+  {n:4,   label:"Hollywood",             meaning:"Entertainment industry / spectacle",                       type:"neutral",   pair:null},
+  {n:5,   label:"Save Money",            meaning:"Financial conservation / frugality",                       type:"positive",  pair:null},
+  {n:6,   label:"Having Someone's Back", meaning:"Loyalty, protection, covering another",                    type:"positive",  pair:"60"},
+  {n:7,   label:"Gambling",              meaning:"Risk-taking, chance-based behavior",                       type:"negative",  pair:"70"},
+  {n:8,   label:"Health",               meaning:"Physical and systemic wellbeing",                           type:"positive",  pair:null},
+  {n:9,   label:"Weapon (9mm)",          meaning:"Armed threat or firearm presence",                         type:"negative",  pair:null},
+  {n:10,  label:"Fight",                meaning:"Physical conflict or confrontation",                        type:"negative",  pair:null},
+  {n:11,  label:"Vanity",               meaning:"Ego-driven appearance obsession",                           type:"negative",  pair:"110"},
+  {n:12,  label:"Torture",              meaning:"Infliction of deliberate suffering",                        type:"negative",  pair:null},
+  {n:13,  label:"Showing Skills",       meaning:"Demonstrating capability or expertise",                     type:"positive",  pair:null},
+  {n:14,  label:"Non-Marine",           meaning:"Civilian, not military-aligned",                            type:"neutral",   pair:null},
+  {n:15,  label:"Family",              meaning:"Core family bond / lineage",                                  type:"positive",  pair:"51"},
+  {n:16,  label:"God",                 meaning:"Divine alignment / God frequency",                            type:"positive",  pair:null},
+  {n:17,  label:"International World Order", meaning:"Global power structure / world governance",            type:"negative",  pair:null},
+  {n:18,  label:"Offing Hells Angels", meaning:"Targeting outlaw motorcycle gang activity",                  type:"positive",  pair:"81"},
+  {n:19,  label:"Fighting Corruption", meaning:"Active opposition to systemic corruption",                   type:"positive",  pair:"91"},
+  {n:20,  label:"Visual / Location",   meaning:"Sight-based awareness, positioning",                         type:"neutral",   pair:null},
+  {n:21,  label:"Fighting Torture",    meaning:"Opposition to torture / cruelty",                            type:"positive",  pair:null},
+  {n:22,  label:"Suicide",             meaning:"Self-termination / destruction signal",                      type:"negative",  pair:null},
+  {n:23,  label:"Raising Something Up", meaning:"Elevation, promotion, lifting a frequency",                 type:"positive",  pair:null},
+  {n:24,  label:"Not Fighting Heroin", meaning:"Passivity toward heroin addiction",                          type:"negative",  pair:null},
+  {n:25,  label:"Defunct USA Soldier", meaning:"Decommissioned or disavowed military",                       type:"negative",  pair:null},
+  {n:26,  label:"Speeding",            meaning:"Reckless velocity / dangerous pace",                         type:"negative",  pair:"62"},
+  {n:27,  label:"Free Healthcare",     meaning:"Universal health access / community care",                   type:"positive",  pair:null},
+  {n:28,  label:"Deadly Sin",          meaning:"Mortal transgression / cardinal sin",                        type:"negative",  pair:"82"},
+  {n:29,  label:"Robs the Poor",       meaning:"Predatory extraction from the vulnerable",                   type:"negative",  pair:null},
+  {n:30,  label:"Reads My Mind",       meaning:"Surveillance of thought / mental intrusion",                 type:"negative",  pair:null},
+  {n:31,  label:"Schooled",            meaning:"Taught a lesson / educated by experience",                   type:"positive",  pair:null},
+  {n:32,  label:"Don't Bring Up",      meaning:"Suppression / taboo topic",                                  type:"neutral",   pair:null},
+  {n:33,  label:"Work With Me",        meaning:"Cooperation / collaborative alignment",                      type:"positive",  pair:null},
+  {n:34,  label:"Doesn't Fight Meth",  meaning:"Complicit in methamphetamine spread",                        type:"negative",  pair:null},
+  {n:35,  label:"Evil",               meaning:"Malevolent intent / dark alignment",                          type:"negative",  pair:"53"},
+  {n:36,  label:"Saves Presidents",   meaning:"Protection of leadership / civic order",                      type:"positive",  pair:"63"},
+  {n:37,  label:"No Love",            meaning:"Emotional deprivation / lovelessness",                        type:"negative",  pair:null},
+  {n:38,  label:"Alcoholic Whorism",  meaning:"Degenerate hedonism through substance",                       type:"negative",  pair:null},
+  {n:39,  label:"Not Gay",            meaning:"Heterosexual identification",                                  type:"neutral",   pair:null},
+  {n:40,  label:"Bible Verse",        meaning:"Scripture reference / divine text invocation",                type:"positive",  pair:null},
+  {n:41,  label:"Marine",             meaning:"US Marine Corps / military integrity",                        type:"positive",  pair:null},
+  {n:42,  label:"Fights Heroin",      meaning:"Active opposition to heroin distribution/use",                type:"positive",  pair:null},
+  {n:43,  label:"Fights Meth",        meaning:"Active opposition to methamphetamine",                        type:"positive",  pair:null},
+  {n:44,  label:"Fights Cocaine",     meaning:"Active opposition to cocaine trade/use",                      type:"positive",  pair:null},
+  {n:45,  label:"Kills People",       meaning:"Lethal threat / assassination code",                          type:"negative",  pair:"54"},
+  {n:46,  label:"Saves Women",        meaning:"Protection of women / feminine defense",                      type:"positive",  pair:"64"},
+  {n:47,  label:"Sacrifices",         meaning:"Self-sacrifice / giving up for the greater good",             type:"positive",  pair:"74"},
+  {n:48,  label:"Hollywood for My Health", meaning:"Entertainment aligned with personal healing",            type:"positive",  pair:null},
+  {n:49,  label:"Hollywood Blocked for Health", meaning:"Entertainment suppressing healing frequencies",     type:"negative",  pair:null},
+  {n:50,  label:"Restart",            meaning:"Reset / reboot / new beginning",                              type:"positive",  pair:null},
+  {n:51,  label:"Evil / Not Family",  meaning:"Betrayal of family / anti-family force",                      type:"negative",  pair:"15"},
+  {n:52,  label:"Doesn't Exist",      meaning:"Erasure / non-existence / nullification",                     type:"negative",  pair:null},
+  {n:53,  label:"God",               meaning:"Highest divine frequency / God alignment",                     type:"positive",  pair:"35"},
+  {n:54,  label:"Saves Lives",        meaning:"Life preservation / rescue code",                             type:"positive",  pair:"45"},
+  {n:55,  label:"Don't Drive At Something", meaning:"Warning against targeting / reckless direction",        type:"neutral",   pair:null},
+  {n:56,  label:"Quit Smoking",       meaning:"Cessation of smoking / respiratory healing",                  type:"positive",  pair:"65"},
+  {n:57,  label:"Evil / No Good",     meaning:"Malevolent force with no redemptive value",                   type:"negative",  pair:"75"},
+  {n:58,  label:"Evil / No Good",     meaning:"Harmful presence, no positive output",                        type:"negative",  pair:"85"},
+  {n:59,  label:"Evil / No Good",     meaning:"Toxic alignment, opposition to good",                         type:"negative",  pair:"95"},
+  {n:60,  label:"No Having Back",     meaning:"Abandonment / leaving someone exposed",                       type:"negative",  pair:"6"},
+  {n:61,  label:"President",          meaning:"Head of state / executive authority",                         type:"positive",  pair:null},
+  {n:62,  label:"No Speeding",        meaning:"Controlled pace / measured approach",                         type:"positive",  pair:"26"},
+  {n:63,  label:"Takes Out Guys",     meaning:"Eliminating male threats / counter-strike",                   type:"positive",  pair:"36"},
+  {n:64,  label:"Takes Out Girls",    meaning:"Eliminating female threats / counter-strike",                 type:"negative",  pair:"46"},
+  {n:65,  label:"Rape and Smokes",    meaning:"Sexual violence combined with substance abuse",                type:"negative",  pair:"56"},
+  {n:66,  label:"Being Recorded",     meaning:"Under surveillance / monitored state",                        type:"neutral",   pair:null},
+  {n:67,  label:"No Revolution",      meaning:"Suppression of uprising / status quo enforcement",            type:"negative",  pair:"76"},
+  {n:68,  label:"No Nukes",          meaning:"Anti-nuclear stance / disarmament",                            type:"positive",  pair:"86"},
+  {n:69,  label:"Sex",               meaning:"Sexual activity / intimate union",                              type:"neutral",   pair:"96"},
+  {n:70,  label:"No Gambling",       meaning:"Opposition to chance / structured intention",                   type:"positive",  pair:"7"},
+  {n:71,  label:"USA Corruption",    meaning:"Internal American systemic corruption",                         type:"negative",  pair:"19"},
+  {n:72,  label:"Terrorism",         meaning:"Terror frequency / fear-based warfare",                         type:"negative",  pair:"73"},
+  {n:73,  label:"Love",              meaning:"Love frequency — absorbs and transforms 72",                    type:"positive",  pair:"72"},
+  {n:74,  label:"No Sacrifice",      meaning:"Refusal to give / self-preservation over mission",             type:"negative",  pair:"47"},
+  {n:75,  label:"Good for Dad",      meaning:"Paternal benefit / father alignment",                           type:"positive",  pair:"57"},
+  {n:76,  label:"Revolution",        meaning:"Systemic overthrow / transformative uprising",                  type:"positive",  pair:"67"},
+  {n:77,  label:"Fighting Cancer",   meaning:"Anti-cancer frequency / healing from disease",                  type:"positive",  pair:null},
+  {n:78,  label:"Nazis",            meaning:"Fascist alignment / supremacist ideology",                       type:"negative",  pair:"87"},
+  {n:79,  label:"No Police",        meaning:"Absence of law enforcement / unpoliced zone",                    type:"negative",  pair:"97"},
+  {n:80,  label:"Kills Me",         meaning:"Self-directed lethal frequency / mortal threat inward",          type:"negative",  pair:null},
+  {n:81,  label:"Hells Angels",     meaning:"Outlaw motorcycle gang / criminal biker culture",                type:"negative",  pair:"18"},
+  {n:82,  label:"Good for Brother", meaning:"Fraternal benefit / brother alignment",                          type:"positive",  pair:"28"},
+  {n:83,  label:"Fights Alcohol",   meaning:"Opposition to alcoholism / sobriety frequency",                  type:"positive",  pair:null},
+  {n:84,  label:"1984 / Mind Reading", meaning:"Orwellian surveillance / thought monitoring",                 type:"negative",  pair:null},
+  {n:85,  label:"Good for Mom",     meaning:"Maternal benefit / mother alignment",                            type:"positive",  pair:"58"},
+  {n:86,  label:"Nuclear",          meaning:"Nuclear energy / atomic destructive power",                      type:"negative",  pair:"68"},
+  {n:87,  label:"No Nazis",         meaning:"Anti-fascist frequency / opposition to supremacy",               type:"positive",  pair:"78"},
+  {n:88,  label:"Bisexual",         meaning:"Dual sexual orientation / both-gender attraction",               type:"neutral",   pair:null},
+  {n:89,  label:"Military",         meaning:"Armed forces / military presence",                               type:"positive",  pair:null},
+  {n:90,  label:"Freedom of Speech", meaning:"Free expression / first amendment frequency",                   type:"positive",  pair:null},
+  {n:91,  label:"Corruption",       meaning:"Systemic moral decay / corrupt authority",                       type:"negative",  pair:"19"},
+  {n:92,  label:"Take Back from Rich", meaning:"Economic rebalancing / wealth redistribution",                type:"positive",  pair:null},
+  {n:93,  label:"Gay",             meaning:"Homosexual orientation / same-sex alignment",                     type:"neutral",   pair:null},
+  {n:94,  label:"Sopranos / Hollywood Mob", meaning:"Organized crime entertainment / mob culture frequency",  type:"negative",  pair:null},
+  {n:95,  label:"Good for Moms",   meaning:"Maternal community benefit / mothers' alignment",                 type:"positive",  pair:"59"},
+  {n:96,  label:"No Sex",          meaning:"Sexual abstinence / celibacy frequency",                          type:"neutral",   pair:"69"},
+  {n:97,  label:"Police",          meaning:"Law enforcement / protective authority",                          type:"positive",  pair:"79"},
+  {n:98,  label:"International Military / NWO", meaning:"Global military coordination / world order forces",  type:"negative",  pair:null},
+  {n:99,  label:"Wild Thing",      meaning:"Uncontrolled primal energy / raw instinct",                       type:"neutral",   pair:null},
+  {n:100, label:"100%",            meaning:"Full commitment / complete alignment",                            type:"positive",  pair:null},
+  {n:101, label:"Learning",        meaning:"Education / knowledge acquisition",                               type:"positive",  pair:null},
+  {n:102, label:"Bad Touches",     meaning:"Inappropriate physical contact / violation code",                 type:"negative",  pair:null},
+  {n:103, label:"Reading Mind",    meaning:"Cognitive surveillance / thought interception",                   type:"negative",  pair:null},
+  {n:104, label:"Understanding",   meaning:"Comprehension / mutual clarity",                                  type:"positive",  pair:null},
+  {n:105, label:"Listen to Someone Else", meaning:"Redirect attention / yield authority",                     type:"neutral",   pair:null},
+  {n:106, label:"Too Busy",        meaning:"Overwhelmed / capacity exceeded",                                  type:"neutral",   pair:null},
+  {n:107, label:"Take a Break",    meaning:"Rest / pause / recovery frequency",                               type:"positive",  pair:null},
+  {n:108, label:"In Service",      meaning:"Active duty / operational state",                                  type:"positive",  pair:null},
+  {n:109, label:"New House for Me", meaning:"Personal domicile / new home energy",                            type:"positive",  pair:null},
+  {n:110, label:"No Vanity",       meaning:"Humility / absence of ego display",                               type:"positive",  pair:"11"},
+  {n:111, label:"Revelations",     meaning:"Apocalyptic revelation / final disclosure",                       type:"special",   pair:null},
+  {n:114, label:"No Information",  meaning:"Information blackout / suppression of data",                      type:"negative",  pair:"411"},
+  {n:222, label:"Find Another Girl", meaning:"Redirect romantic/sexual attention elsewhere",                   type:"neutral",   pair:null},
+  {n:411, label:"Information",     meaning:"Full access to information / data flow open",                      type:"positive",  pair:"114"},
+];
+
+function buildTable() {
+  const tbody = document.getElementById('codeTableBody');
+  CODES.forEach(c => {
+    const tr = document.createElement('tr');
+    tr.className = 'code-row ' + (c.type === 'positive' ? 'positive' : c.type === 'negative' ? 'negative' : '');
+    tr.dataset.type = c.type === 'pairs' ? 'pairs' : c.pair ? 'pairs' : c.type;
+    if (c.pair) tr.dataset.type = 'pairs';
+    let tag = '';
+    if (c.type === 'positive') tag = '<span class="tag tag-pos">+</span>';
+    else if (c.type === 'negative') tag = '<span class="tag tag-neg">−</span>';
+    else if (c.type === 'special') tag = '<span class="tag tag-spl">★</span>';
+    const pairStr = c.pair ? `<span class="code-pair">↔ ${c.pair}</span>` : '—';
+    tr.innerHTML = `<td><span class="code-num">${c.n}</span>${tag}</td><td><span class="code-label">${c.label}</span></td><td>${c.meaning}</td><td>${pairStr}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+function buildPairs() {
+  const grid = document.getElementById('pairsGrid');
+  const seen = new Set();
+  CODES.forEach(c => {
+    if (c.pair && !seen.has(c.n + '-' + c.pair) && !seen.has(c.pair + '-' + c.n)) {
+      seen.add(c.n + '-' + c.pair);
+      const partner = CODES.find(x => String(x.n) === c.pair);
+      const card = document.createElement('div');
+      card.className = 'pair-card';
+      card.innerHTML = `<div class="left"><strong style="color:#ffd700">${c.n}</strong><br><small>${c.label}</small></div><div class="arrow">↔</div><div class="right"><strong style="color:#ffd700">${c.pair}</strong><br><small>${partner ? partner.label : '?'}</small></div>`;
+      grid.appendChild(card);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  buildTable();
+  buildPairs();
+
+  document.getElementById('codeSearch').addEventListener('input', function() {
+    const q = this.value.toLowerCase();
+    document.querySelectorAll('.code-row').forEach(row => {
+      row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  });
+
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const filter = this.dataset.filter;
+      document.querySelectorAll('.code-row').forEach(row => {
+        if (filter === 'all') row.style.display = '';
+        else row.style.display = row.dataset.type === filter ? '' : 'none';
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>
