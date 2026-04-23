@@ -8,13 +8,80 @@
 </head>
 <body>
 <script src="../js/nav.js"></script>
+
 <main class="page-wrapper">
   <div class="content-page">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Tools</span><span class="breadcrumb-sep">›</span><span style="color:var(--accent-cyan);">Intent Programmer</span></nav>
-    <header class="tool-page-header"><h1>Intent Programmer</h1><p>Convert desired outcomes into stack, code, and activation sequence drafts.</p></header>
-    <section class="tool-panel"><div class="tool-panel-title">Programming Workflow</div><p>This route now exists for the guided static-programming workflow: select target state, assign command stack, and export execution sequence.</p><div class="callout"><strong>Cross-link:</strong> See <a href="../pages/static-programming.html">Static Programming</a> and <a href="../pages/nested-instruction.html">Nested Instruction</a> for conceptual setup.</div></section>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Intent Programmer</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Intent Programmer</h1>
+      <p>Select a desired outcome — the tool builds a code stack, assigns driver elements, and generates an activation sequence.</p>
+    </header>
+
+    <!-- Step 1 – Choose intent -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Step 1 — Choose Intent Category</div>
+      <div id="intentGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:0.6rem;margin-bottom:1rem;"></div>
+    </section>
+
+    <!-- Step 2 – Refine -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Step 2 — Describe Intent (optional)</div>
+      <div class="form-row">
+        <div class="form-group" style="flex:1;">
+          <label for="intentDesc">Free-form note</label>
+          <input id="intentDesc" type="text" placeholder="e.g. reduce stress before sleep, protect family unit…">
+        </div>
+        <div class="form-group">
+          <label for="intentStrength">Strength</label>
+          <select id="intentStrength">
+            <option value="1">Gentle</option>
+            <option value="2" selected>Standard</option>
+            <option value="3">Strong</option>
+          </select>
+        </div>
+      </div>
+      <button id="intentBuild" class="btn btn-primary">⚡ Build Program</button>
+    </section>
+
+    <!-- Output -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Generated Code Stack</div>
+      <div id="intentStack" class="stack-chain" style="min-height:48px;"></div>
+      <div id="intentChain" style="margin-top:0.75rem;"></div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Element Assignments</div>
+      <div id="intentElements"></div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Activation Sequence</div>
+      <div id="intentSequence" style="color:var(--text-muted);font-style:italic;font-size:0.9rem;">Build a program first.</div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;">
+        <button id="intentExport" class="btn btn-gold" disabled>Export Program</button>
+        <button id="intentCopy"   class="btn btn-secondary" disabled>Copy</button>
+        <button id="intentClear"  class="btn btn-ghost">Clear</button>
+      </div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/static-programming.html">Static Programming</a> · 
+      <a href="../pages/nested-instruction.html">Nested Instruction</a> · 
+      <a href="code-interpreter.html">Code Interpreter</a>
+    </div>
   </div>
 </main>
+
 <script src="../js/main.js"></script>
+<script src="../js/intent-programmer.js"></script>
 </body>
 </html>

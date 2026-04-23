@@ -8,13 +8,115 @@
 </head>
 <body>
 <script src="../js/nav.js"></script>
+
 <main class="page-wrapper">
   <div class="content-page">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Tools</span><span class="breadcrumb-sep">›</span><span style="color:var(--accent-cyan);">Vein Mapper</span></nav>
-    <header class="tool-page-header"><h1>Vein Mapper</h1><p>Map vein direction vectors and identify possible resonance pathways.</p></header>
-    <section class="tool-panel"><div class="tool-panel-title">Mapping Workspace</div><p>Use this page for local vector capture, junction marking, and route interpretation for gold/quartz pathing models.</p><div class="callout"><strong>Cross-link:</strong> See <a href="../pages/earthen-growth.html">Earthen Growth</a> and <a href="../pages/global-resonant-grid.html">Global Resonant Grid</a>.</div></section>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Vein Mapper</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Vein Mapper</h1>
+      <p>Plot gold/quartz vein strike angles, compute resonance-grid alignment ratios, and map vector pathways to planetary grid nodes.</p>
+    </header>
+
+    <!-- Controls -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Vein Parameters</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="veinType">Vein Type</label>
+          <select id="veinType">
+            <option value="gold">Gold (Au)</option>
+            <option value="quartz">Quartz (SiO₂)</option>
+            <option value="quartzgold">Gold-in-Quartz</option>
+            <option value="silver">Silver (Ag)</option>
+            <option value="copper">Copper (Cu)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="veinStrike">Strike Angle (°, 0–360)</label>
+          <input id="veinStrike" type="number" min="0" max="360" step="1" value="45">
+        </div>
+        <div class="form-group">
+          <label for="veinDip">Dip Angle (°, 0–90)</label>
+          <input id="veinDip" type="number" min="0" max="90" step="1" value="70">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="veinWidth">Vein Width (cm)</label>
+          <input id="veinWidth" type="number" min="0.1" max="500" step="0.1" value="5">
+        </div>
+        <div class="form-group">
+          <label for="veinDepth">Estimated Depth (m)</label>
+          <input id="veinDepth" type="number" min="0.1" max="5000" step="1" value="30">
+        </div>
+        <div class="form-group">
+          <label for="veinGrid">Grid Node Spacing (km)</label>
+          <select id="veinGrid">
+            <option value="111">111 km (1° lat/lon)</option>
+            <option value="55.5">55.5 km (0.5°)</option>
+            <option value="400" selected>~400 km (Schumann base)</option>
+            <option value="6371">6,371 km (Earth radius)</option>
+          </select>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button id="veinAdd" class="btn btn-primary">+ Add Vein</button>
+        <button id="veinClear" class="btn btn-ghost">Clear All</button>
+        <button id="veinExport" class="btn btn-secondary">Export PNG</button>
+      </div>
+    </section>
+
+    <!-- Canvas + side -->
+    <section class="tool-panel" style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1rem;align-items:start;">
+      <div>
+        <div class="viz-canvas-wrap">
+          <canvas id="veinCanvas" class="viz-canvas" width="600" height="540" aria-label="Vein map canvas"></canvas>
+        </div>
+      </div>
+      <aside id="veinSide" class="side-panel">
+        <p style="color:#475569;font-style:italic;font-size:0.85rem;">Add a vein to see grid alignment details.</p>
+      </aside>
+    </section>
+
+    <!-- Table -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Vein Log</div>
+      <div class="scroll-list">
+        <table class="code-table sticky-header">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Type</th>
+              <th>Strike °</th>
+              <th>Dip °</th>
+              <th>Width cm</th>
+              <th>Grid Align %</th>
+              <th>Node Distance</th>
+              <th>Resonance Ratio</th>
+            </tr>
+          </thead>
+          <tbody id="veinTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/earthen-growth.html">Earthen Growth</a> · 
+      <a href="../pages/global-resonant-grid.html">Global Resonant Grid</a> · 
+      <a href="../pages/transmutation.html">Transmutation</a>
+    </div>
   </div>
 </main>
+
 <script src="../js/main.js"></script>
+<script src="../js/vein-mapper.js"></script>
 </body>
 </html>

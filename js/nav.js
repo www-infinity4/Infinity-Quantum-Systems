@@ -64,15 +64,19 @@ const NAV_HTML = `
           Tools <span class="nav-chevron">▾</span>
         </button>
         <ul class="nav-dropdown" aria-label="Tools">
-          <li><span class="nav-dropdown-label">Interactive Tools</span></li>
+          <li><span class="nav-dropdown-label">Calculators</span></li>
           <li><a href="TOOLS_ROOT/resonance-calculator.html">Resonance Calculator</a></li>
           <li><a href="TOOLS_ROOT/code-interpreter.html">Code Interpreter</a></li>
           <li><a href="TOOLS_ROOT/stack-visualizer.html">Stack Visualizer</a></li>
           <li><a href="TOOLS_ROOT/frequency-driver.html">Frequency Driver</a></li>
+          <li><a href="TOOLS_ROOT/lensing-engine.html">Lensing Engine</a></li>
           <li><a href="TOOLS_ROOT/intent-programmer.html">Intent Programmer</a></li>
           <li><a href="TOOLS_ROOT/vein-mapper.html">Vein Mapper</a></li>
+          <li><span class="nav-dropdown-label">3D Visualizers</span></li>
+          <li><a href="TOOLS_ROOT/atomic-lattice-3d.html">⚛ Atomic Lattice 3D</a></li>
+          <li><a href="TOOLS_ROOT/harmonic-wave-builder.html">〜 Harmonic Wave Builder</a></li>
+          <li><a href="TOOLS_ROOT/phonon-vortex.html">🌀 Phonon Vortex</a></li>
           <li><a href="TOOLS_ROOT/gyroscopic-simulator.html">Gyroscopic Simulator</a></li>
-          <li><a href="TOOLS_ROOT/lensing-engine.html">Lensing Engine</a></li>
           <li><a href="TOOLS_ROOT/resonance-computer.html">Resonance Computer</a></li>
         </ul>
       </li>
@@ -139,8 +143,19 @@ const FOOTER_HTML = `
           <li><a href="TOOLS_ROOT/code-interpreter.html">Code Interpreter</a></li>
           <li><a href="TOOLS_ROOT/stack-visualizer.html">Stack Visualizer</a></li>
           <li><a href="TOOLS_ROOT/frequency-driver.html">Frequency Driver</a></li>
+          <li><a href="TOOLS_ROOT/lensing-engine.html">Lensing Engine</a></li>
           <li><a href="TOOLS_ROOT/intent-programmer.html">Intent Programmer</a></li>
+          <li><a href="TOOLS_ROOT/vein-mapper.html">Vein Mapper</a></li>
           <li><a href="TOOLS_ROOT/resonance-computer.html">Resonance Computer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>3D Visualizers</h4>
+        <ul>
+          <li><a href="TOOLS_ROOT/atomic-lattice-3d.html">⚛ Atomic Lattice 3D</a></li>
+          <li><a href="TOOLS_ROOT/harmonic-wave-builder.html">〜 Harmonic Wave Builder</a></li>
+          <li><a href="TOOLS_ROOT/phonon-vortex.html">🌀 Phonon Vortex</a></li>
+          <li><a href="TOOLS_ROOT/gyroscopic-simulator.html">Gyroscopic Simulator</a></li>
         </ul>
       </div>
       <div class="footer-col">
