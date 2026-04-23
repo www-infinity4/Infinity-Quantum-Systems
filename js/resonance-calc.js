@@ -30,7 +30,7 @@
     flipBtn   = document.getElementById('flipBtn');
     resultBox = document.getElementById('resultBox');
     canvas    = document.getElementById('resonanceCanvas');
-    if (canvas) ctx = canvas.getContext('2d');
+    if (canvas) ctx = window.ROS.configureCanvasContext(canvas.getContext('2d'));
 
     // Make canvas responsive
     if (canvas) {

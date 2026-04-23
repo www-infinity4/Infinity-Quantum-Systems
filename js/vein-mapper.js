@@ -49,7 +49,7 @@
     canvas    = document.getElementById('veinCanvas');
 
     if (canvas) {
-      ctx = canvas.getContext('2d');
+      ctx = window.ROS.configureCanvasContext(canvas.getContext('2d'));
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
       canvas.addEventListener('click', handleCanvasClick);
