@@ -64,7 +64,6 @@ const NAV_HTML = `
           Tools <span class="nav-chevron">▾</span>
         </button>
         <ul class="nav-dropdown" aria-label="Tools">
-          <li><span class="nav-dropdown-label">Interactive Tools</span></li>
           <li><span class="nav-dropdown-label">Calculators</span></li>
           <li><a href="TOOLS_ROOT/resonance-calculator.html">Resonance Calculator</a></li>
           <li><a href="TOOLS_ROOT/code-interpreter.html">Code Interpreter</a></li>

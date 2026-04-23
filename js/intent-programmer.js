@@ -6,6 +6,16 @@
 (function () {
   'use strict';
 
+  /* ── HTML escape helper ──────────────────────────────────── */
+  function esc(str) {
+    return String(str)
+      .replace(/&/g,  '&amp;')
+      .replace(/</g,  '&lt;')
+      .replace(/>/g,  '&gt;')
+      .replace(/"/g,  '&quot;')
+      .replace(/'/g,  '&#39;');
+  }
+
   /* ── Intent library ──────────────────────────────────────── */
   // Each category maps to codes and elements drawn from ROS data
   const INTENT_LIBRARY = [
@@ -242,12 +252,12 @@
       const nextCode = nextNum !== undefined ? window.ROS.getCode(nextNum) : null;
       html += `<li class="coc-row" style="animation-delay:${idx * 0.06}s">
         <div style="display:flex;align-items:center;gap:0.5rem;">
-          <span class="coc-num">${num}</span>
-          <span class="coc-label">${label}</span>
+          <span class="coc-num">${esc(num)}</span>
+          <span class="coc-label">${esc(label)}</span>
           ${num === 0 ? '<span class="tag badge-red">CANCEL / CLOSE</span>' : ''}
         </div>
-        <div class="coc-meaning">${meaning}</div>
-        ${nextCode ? `<div class="coc-soldier">↓ Commands: <strong style="color:#06b6d4;">${nextNum} — ${nextCode.label}</strong></div>` : ''}
+        <div class="coc-meaning">${esc(meaning)}</div>
+        ${nextCode ? `<div class="coc-soldier">↓ Commands: <strong style="color:#06b6d4;">${esc(nextNum)} — ${esc(nextCode.label)}</strong></div>` : ''}
       </li>`;
     });
     html += '</ol>';
@@ -286,27 +296,27 @@
     const strengthLabel = ['', 'Gentle', 'Standard', 'Strong'][strength] || 'Standard';
     const labels = generatedStack.map(n => {
       const c = window.ROS.getCode(n);
-      return c ? `${n}(${c.label})` : String(n);
+      return c ? esc(n) + '(' + esc(c.label) + ')' : esc(String(n));
     });
 
     intentSequence.innerHTML = `
       <div style="background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.2);border-radius:8px;padding:1rem;font-family:var(--font-mono);font-size:0.82rem;line-height:1.8;">
         <div style="color:#06b6d4;font-weight:700;margin-bottom:0.5rem;">═══ INTENT PROGRAM ═══</div>
-        <div><span style="color:#64748b;">Intent Category:</span> <span style="color:#e2e8f0;">${selectedIntent.label}</span></div>
-        <div><span style="color:#64748b;">Strength:</span> <span style="color:#e2e8f0;">${strengthLabel}</span></div>
-        ${userNote ? `<div><span style="color:#64748b;">Note:</span> <span style="color:#e2e8f0;">${userNote}</span></div>` : ''}
+        <div><span style="color:#64748b;">Intent Category:</span> <span style="color:#e2e8f0;">${esc(selectedIntent.label)}</span></div>
+        <div><span style="color:#64748b;">Strength:</span> <span style="color:#e2e8f0;">${esc(strengthLabel)}</span></div>
+        ${userNote ? `<div><span style="color:#64748b;">Note:</span> <span style="color:#e2e8f0;">${esc(userNote)}</span></div>` : ''}
         <div style="margin-top:0.5rem;"><span style="color:#64748b;">Code Stack:</span> <span style="color:#f59e0b;">${labels.join(' → ')}</span></div>
-        <div><span style="color:#64748b;">Elements (Z):</span> <span style="color:#10b981;">${generatedElements.join(' → ')}</span></div>
+        <div><span style="color:#64748b;">Elements (Z):</span> <span style="color:#10b981;">${generatedElements.map(z => esc(String(z))).join(' → ')}</span></div>
         <hr style="border-color:#1e2d4a;margin:0.6rem 0;">
-        <div style="color:#94a3b8;">${selectedIntent.notes}</div>
+        <div style="color:#94a3b8;">${esc(selectedIntent.notes)}</div>
         <hr style="border-color:#1e2d4a;margin:0.6rem 0;">
         <div style="color:#64748b;font-size:0.75rem;">
           ACTIVATION STEPS:<br>
-          1. Hold intent clearly in mind: "${selectedIntent.desc}"<br>
-          2. Arrange elements in stack order: ${generatedElements.map(z => { const e = window.ROS.getElementByZ(z); return e ? e.symbol : z; }).join(' → ')}<br>
+          1. Hold intent clearly in mind: &ldquo;${esc(selectedIntent.desc)}&rdquo;<br>
+          2. Arrange elements in stack order: ${generatedElements.map(z => { const e = window.ROS.getElementByZ(z); return e ? esc(e.symbol) : esc(String(z)); }).join(' → ')}<br>
           3. Invoke code stack from top down: ${labels.join(' → ')}<br>
           4. Seal sequence with Code 0 (Cancel / Close) at end.<br>
-          5. Hold for ${strength * 30} seconds minimum.
+          5. Hold for ${esc(String(strength * 30))} seconds minimum.
         </div>
       </div>
     `;
