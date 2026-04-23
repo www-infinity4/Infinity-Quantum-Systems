@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atomic Lattice 3D — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Atomic Lattice 3D</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Atomic Lattice 3D</h1>
+      <p>Rotating 3D hydrogen-stack node network — atoms connected by resonance bonds, color-coded by parity. Click nodes to activate.</p>
+    </header>
+
+    <!-- Controls -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Lattice Controls</div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+        <div class="form-group" style="min-width:120px;">
+          <label for="latRows">Grid Size</label>
+          <select id="latRows">
+            <option value="3">3 × 3 × 2</option>
+            <option value="4" selected>4 × 4 × 3</option>
+            <option value="5">5 × 5 × 4</option>
+          </select>
+        </div>
+        <div class="form-group" style="min-width:140px;">
+          <label for="latElement">Node Element</label>
+          <select id="latElement"></select>
+        </div>
+        <div class="form-group">
+          <label for="latSpin" style="display:block;">Auto-Rotate</label>
+          <button id="latSpin" class="btn btn-primary" aria-pressed="true">⟳ Spinning</button>
+        </div>
+        <div class="form-group">
+          <label for="latBonds" style="display:block;">Show Bonds</label>
+          <button id="latBonds" class="btn btn-secondary" aria-pressed="true">Bonds ON</button>
+        </div>
+        <button id="latReset" class="btn btn-ghost">Reset</button>
+        <button id="latActivateAll" class="btn btn-gold">Activate All</button>
+        <div id="latPresets" class="preset-row" style="flex:1;"></div>
+      </div>
+      <div style="font-size:0.78rem;color:var(--text-dim);margin-top:0.5rem;">
+        Drag canvas to rotate · Scroll to zoom · Click a node to activate/deactivate
+      </div>
+    </section>
+
+    <!-- Canvas -->
+    <section class="tool-panel" style="padding:0.5rem;">
+      <canvas id="latCanvas" width="720" height="540"
+        style="width:100%;border-radius:8px;background:#070b14;cursor:grab;"
+        aria-label="3D atomic lattice canvas"></canvas>
+    </section>
+
+    <!-- Info panel -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Selected Node</div>
+      <div id="latNodeInfo" style="color:var(--text-muted);font-style:italic;font-size:0.9rem;">Click a node in the lattice to inspect it.</div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/hydrogen-stack-ruby.html">Hydrogen Stack</a> · 
+      <a href="stack-visualizer.html">Stack Visualizer (2D)</a> · 
+      <a href="../pages/atomic-computer.html">Atomic Computer</a>
+    </div>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/atomic-lattice-3d.js"></script>
+</body>
+</html>

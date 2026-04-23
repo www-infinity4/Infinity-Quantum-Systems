@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harmonic Wave Builder — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Harmonic Wave Builder</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Harmonic Wave Builder</h1>
+      <p>Stack H → H² → L → B → B² → C elements to build compound resonance waveforms. Each container adds its harmonic layer to the field.</p>
+    </header>
+
+    <!-- Element containers row -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Element Stack — Click to Add / Remove</div>
+      <div id="waveContainers" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-end;justify-content:center;padding:0.5rem 0;"></div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.75rem;align-items:center;">
+        <button id="waveClearStack" class="btn btn-ghost">Clear Stack</button>
+        <button id="waveAddAll" class="btn btn-secondary">Add All Elements</button>
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);">
+          Speed
+          <input id="waveSpeed" type="range" min="0.1" max="4" step="0.1" value="1" style="width:80px;">
+          <span id="waveSpeedVal">1×</span>
+        </label>
+        <label style="display:flex;align-items:center;gap:0.5rem;font-size:0.82rem;color:var(--text-muted);">
+          Zoom
+          <input id="waveZoom" type="range" min="0.5" max="3" step="0.1" value="1" style="width:80px;">
+          <span id="waveZoomVal">1×</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Main wave canvas -->
+    <section class="tool-panel" style="padding:0.5rem;">
+      <canvas id="waveCanvas" width="720" height="320"
+        style="width:100%;border-radius:8px;background:#070b14;"
+        aria-label="Harmonic wave composite canvas"></canvas>
+    </section>
+
+    <!-- Individual wave strips -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Individual Layer Waveforms</div>
+      <canvas id="waveLayerCanvas" width="720" height="180"
+        style="width:100%;border-radius:8px;background:#070b14;"
+        aria-label="Individual wave layers canvas"></canvas>
+    </section>
+
+    <!-- Stats -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Wave Analysis</div>
+      <div id="waveStats" style="color:var(--text-muted);font-style:italic;font-size:0.9rem;">Add elements to see wave analysis.</div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/proportional-scaling.html">Proportional Scaling</a> · 
+      <a href="../pages/hydrogen-stack-ruby.html">Hydrogen Stack</a> · 
+      <a href="resonance-calculator.html">Resonance Calculator</a>
+    </div>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/harmonic-wave-builder.js"></script>
+</body>
+</html>

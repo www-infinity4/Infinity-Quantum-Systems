@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phonon Vortex — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Phonon Vortex</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Phonon Vortex</h1>
+      <p>Phonon packets stream through a resonance cone, converge at the focal lens, and spiral into a rotating vortex field — radiation tip to coil.</p>
+    </header>
+
+    <!-- Controls -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Vortex Controls</div>
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;">
+        <div class="form-group">
+          <label for="vortElement">Focal Element</label>
+          <select id="vortElement"></select>
+        </div>
+        <div class="form-group">
+          <label for="vortPhonons">Phonon Count</label>
+          <select id="vortPhonons">
+            <option value="5">5 (gentle)</option>
+            <option value="8" selected>8 (standard)</option>
+            <option value="12">12 (intense)</option>
+            <option value="20">20 (cascade)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="vortSpin">Vortex Speed</label>
+          <input id="vortSpin" type="range" min="0.2" max="6" step="0.1" value="2" style="width:90px;">
+          <span id="vortSpinVal" style="font-size:0.8rem;color:var(--text-muted);margin-left:0.3rem;">2×</span>
+        </div>
+        <div class="form-group">
+          <label for="vortMode" style="display:block;">Mode</label>
+          <select id="vortMode">
+            <option value="focus">Convergent Lens</option>
+            <option value="spiral">Spiral Coil</option>
+            <option value="both" selected>Both</option>
+          </select>
+        </div>
+        <button id="vortReset" class="btn btn-ghost">Reset</button>
+        <button id="vortPulse" class="btn btn-primary">⚡ Pulse</button>
+      </div>
+    </section>
+
+    <!-- Main canvas — full width, tall -->
+    <section class="tool-panel" style="padding:0.25rem;">
+      <canvas id="vortCanvas" width="900" height="500"
+        style="width:100%;border-radius:8px;background:#070b14;"
+        aria-label="Phonon vortex canvas"></canvas>
+    </section>
+
+    <!-- Field readout -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Field Readout</div>
+      <div id="vortReadout" style="color:var(--text-muted);font-style:italic;font-size:0.9rem;">Loading field data…</div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/quantum-microphone.html">Quantum Microphone</a> · 
+      <a href="../pages/static-programming.html">Static Programming</a> · 
+      <a href="lensing-engine.html">Lensing Engine</a>
+    </div>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/phonon-vortex.js"></script>
+</body>
+</html>
