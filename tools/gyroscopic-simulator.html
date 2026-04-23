@@ -8,13 +8,66 @@
 </head>
 <body>
 <script src="../js/nav.js"></script>
+
 <main class="page-wrapper">
   <div class="content-page">
-    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><span class="breadcrumb-sep">›</span><span>Tools</span><span class="breadcrumb-sep">›</span><span style="color:var(--accent-cyan);">Gyroscopic Simulator</span></nav>
-    <header class="tool-page-header"><h1>Gyroscopic Simulator</h1><p>Model gyroscopic lock behavior across element count and environmental variables.</p></header>
-    <section class="tool-panel"><div class="tool-panel-title">Field Simulation</div><p>This route enables gyroscopic pattern simulation and comparison of candidate lock geometries.</p><div class="callout"><strong>Cross-link:</strong> See <a href="../pages/geometric-resonance.html">Geometric Resonance</a> and <a href="../pages/spacecraft-hull.html">Spacecraft Hull</a>.</div></section>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Gyroscopic Simulator</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Gyroscopic Simulator</h1>
+      <p>Drag the Alpha–Beta–Gamma triangle vertices to shift spatial resonance ratios and explore how geometry replaces time as a tuning axis.</p>
+    </header>
+
+    <!-- Controls -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Controls</div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;">
+        <button id="gyrReset" class="btn btn-ghost">Reset Triangle</button>
+        <button id="gyrEquilateral" class="btn btn-secondary">Equilateral</button>
+        <button id="gyrGolden" class="btn btn-secondary">Golden Ratio</button>
+        <button id="gyrSpin" class="btn btn-primary" aria-pressed="false">⟳ Spin Lock</button>
+        <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.82rem;color:var(--text-muted);">
+          Spin Speed
+          <input id="gyrSpinSpeed" type="range" min="0.2" max="5" step="0.1" value="1" style="width:80px;">
+        </label>
+      </div>
+    </section>
+
+    <!-- Canvas + side -->
+    <section class="tool-panel" style="display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:1rem;align-items:start;">
+      <div>
+        <div class="viz-canvas-wrap">
+          <canvas id="gyrCanvas" class="viz-canvas" width="580" height="520" aria-label="Gyroscopic triangle simulator"></canvas>
+        </div>
+        <p style="font-size:0.78rem;color:var(--text-dim);margin-top:0.4rem;">Drag vertices to reshape — hold Shift to move the whole triangle.</p>
+      </div>
+      <aside id="gyrSide" class="side-panel">
+        <p style="color:#475569;font-style:italic;font-size:0.85rem;">Drag a vertex to update ratios.</p>
+      </aside>
+    </section>
+
+    <!-- Ratio table -->
+    <section class="tool-panel">
+      <div class="tool-panel-title">Live Resonance Ratios</div>
+      <div id="gyrRatios" class="result-grid"></div>
+    </section>
+
+    <div class="callout">
+      <strong>Cross-links:</strong>
+      <a href="../pages/geometric-resonance.html">Geometric Resonance</a> · 
+      <a href="../pages/spacecraft-hull.html">Spacecraft Hull</a> · 
+      <a href="stack-visualizer.html">Stack Visualizer</a>
+    </div>
   </div>
 </main>
+
 <script src="../js/main.js"></script>
+<script src="../js/gyroscopic-simulator.js"></script>
 </body>
 </html>
