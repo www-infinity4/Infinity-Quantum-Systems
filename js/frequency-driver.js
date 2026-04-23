@@ -68,7 +68,7 @@
     presetContainer = document.getElementById('drvPresets');
 
     if (canvas) {
-      ctx = canvas.getContext('2d');
+      ctx = window.ROS.configureCanvasContext(canvas.getContext('2d'));
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
     }

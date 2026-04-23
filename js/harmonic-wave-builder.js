@@ -80,12 +80,12 @@
     canvasLayer    = document.getElementById('waveLayerCanvas');
 
     if (canvas) {
-      ctxMain = canvas.getContext('2d');
+      ctxMain = window.ROS.configureCanvasContext(canvas.getContext('2d'));
       resizeCanvas(canvas, 720, 320);
       window.addEventListener('resize', () => resizeCanvas(canvas, 720, 320));
     }
     if (canvasLayer) {
-      ctxLayer = canvasLayer.getContext('2d');
+      ctxLayer = window.ROS.configureCanvasContext(canvasLayer.getContext('2d'));
       resizeCanvas(canvasLayer, 720, 180);
       window.addEventListener('resize', () => resizeCanvas(canvasLayer, 720, 180));
     }

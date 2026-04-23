@@ -40,6 +40,14 @@ window.ROS = {
     return 'data/';
   },
 
+  /* ── Canvas quality helper ────────────────────────────────── */
+  configureCanvasContext(ctx) {
+    if (!ctx) return ctx;
+    ctx.imageSmoothingEnabled = true;
+    if ('imageSmoothingQuality' in ctx) ctx.imageSmoothingQuality = 'high';
+    return ctx;
+  },
+
   /* ── Code lookups ────────────────────────────────────────── */
   getCode(number) {
     const n = parseInt(number, 10);
