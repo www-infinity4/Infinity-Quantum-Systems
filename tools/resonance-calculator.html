@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resonance Calculator — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+  <div class="content-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tools</span>
+      <span class="breadcrumb-sep">›</span>
+      <span style="color:var(--accent-cyan);">Resonance Calculator</span>
+    </nav>
+
+    <header class="tool-page-header">
+      <h1>Resonance Calculator</h1>
+      <p>Compare two elements by mass ratio, parity role, snap voltage, and activation frequency.</p>
+    </header>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Pair Selection</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="elemA">Element A</label>
+          <select id="elemA"></select>
+        </div>
+        <div class="form-group">
+          <label for="elemB">Element B</label>
+          <select id="elemB"></select>
+        </div>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+        <button id="calcBtn" class="btn btn-primary">Calculate</button>
+        <button id="flipBtn" class="btn btn-secondary">Flip A/B</button>
+      </div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Resonance Visualization</div>
+      <div class="viz-canvas-wrap">
+        <canvas id="resonanceCanvas" class="viz-canvas" width="560" height="220" aria-label="Resonance waveform canvas"></canvas>
+      </div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Result Output</div>
+      <div id="resultBox" class="result-box"></div>
+    </section>
+
+    <section class="tool-panel">
+      <div class="tool-panel-title">Code Linkage</div>
+      <div id="codeLinkage"></div>
+    </section>
+  </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/resonance-calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jar Lab — Resonant OS</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<script src="../js/nav.js"></script>
+
+<main class="page-wrapper">
+<div class="content-page">
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Advanced</span>
+    <span class="breadcrumb-sep">›</span>
+    <span style="color:var(--accent-cyan);">Jar Lab</span>
+  </nav>
+
+  <h1>Jar Lab</h1>
+  <h2 style="color:var(--text-muted);font-size:1.1rem;border:none;padding:0;margin-top:0.25rem;">Low-Voltage Resonance Bench Setup in a Sealed Container</h2>
+  <p style="color:var(--text-dim);font-family:var(--font-mono);font-size:0.82rem;margin-bottom:2rem;">LAB MODULE · PRACTICAL WORKFLOW · REV 1.0</p>
+
+  <p>The Jar Lab is the practical, low-risk entry point for Resonant OS experiments. It translates theoretical stack concepts into a controlled bench-scale environment using low voltage, common materials, and repeatable observation routines.</p>
+
+  <h2>Purpose</h2>
+  <ul>
+    <li>Create a stable container for humidity-managed resonance tests.</li>
+    <li>Observe stack response under small voltage bias and frequency nudges.</li>
+    <li>Record repeatable changes in potential, temperature drift, and signal noise floor.</li>
+  </ul>
+
+  <h2>Baseline Build</h2>
+  <div class="tool-panel">
+    <div class="tool-panel-title">Minimum Lab Stack</div>
+    <dl class="tech-spec">
+      <dt>Container</dt><dd>Glass jar with non-reactive lid and two feedthrough points.</dd>
+      <dt>Electrode Base</dt><dd>Copper primary output element with secure contact leads.</dd>
+      <dt>Driver Layer</dt><dd>Optional silver/palladium contact pair above copper.</dd>
+      <dt>Hydration Control</dt><dd>Small humidity source to keep environment stable and measurable.</dd>
+      <dt>Instrumentation</dt><dd>Low-voltage supply, multimeter, and simple data log sheet.</dd>
+    </dl>
+  </div>
+
+  <h2>Operating Sequence</h2>
+  <ol>
+    <li>Assemble dry and verify continuity before introducing humidity.</li>
+    <li>Apply a small bias and wait for baseline stabilization.</li>
+    <li>Step frequency or code pattern one change at a time.</li>
+    <li>Log output deltas and reset between trials.</li>
+  </ol>
+
+  <div class="callout">
+    <strong>Related Tools:</strong> Use <a href="../tools/resonance-calculator.html">Resonance Calculator</a> for pair values, <a href="../tools/intent-programmer.html">Intent Programmer</a> for sequence planning, and <a href="../tools/stack-visualizer.html">Stack Visualizer</a> for layer planning.
+  </div>
+
+  <div class="safety-box" style="margin-top:2rem;">
+    <div class="safety-box-title">⚠ Safety Notice</div>
+    <p style="color:var(--text-muted);font-size:0.88rem;line-height:1.7;">Use only low-voltage bench supplies and non-hazardous materials. Do not use radioactive, toxic, pressurized, or controlled substances. This page is conceptual and educational; all physical work must follow applicable lab and legal safety requirements.</p>
+  </div>
+
+</div>
+</main>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
