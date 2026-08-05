@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://infinity.local/schemas/layered-star-hull.nano.schema.json",
+  "title": "Infinity Layered Star Hull Simulation",
+  "description": "Machine-readable simulation and provenance schema. Not a reactor, radiation source, propulsion, or weapon construction specification.",
+  "type": "object",
+  "required": ["simulationId", "classification", "layers", "controls", "outputs", "provenance"],
+  "properties": {
+    "simulationId": {"type": "string", "minLength": 8},
+    "classification": {
+      "const": "simulation-only",
+      "description": "Prevents records from being represented as validated physical devices."
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "prefixItems": [
+        {"$ref": "#/$defs/hydrogen"},
+        {"$ref": "#/$defs/helium"},
+        {"$ref": "#/$defs/lithium"},
+        {"$ref": "#/$defs/beryllium"},
+        {"$ref": "#/$defs/boron"},
+        {"$ref": "#/$defs/carbon"},
+        {"$ref": "#/$defs/nitrogen"},
+        {"$ref": "#/$defs/oxygen"},
+        {"$ref": "#/$defs/fluorine"}
+      ]
+    },
+    "controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["coreIntensity", "boronThrottle", "carbonHeatSpread", "fieldSkin", "ytterbiumStability"],
+      "properties": {
+        "coreIntensity": {"type": "number", "minimum": 0, "maximum": 100},
+        "boronThrottle": {"type": "number", "minimum": 0, "maximum": 100},
+        "carbonHeatSpread": {"type": "number", "minimum": 0, "maximum": 100},
+        "fieldSkin": {"type": "number", "minimum": 0, "maximum": 100},
+        "ytterbiumStability": {"type": "number", "minimum": 0, "maximum": 100}
+      }
+    },
+    "gammaVector": {
+      "type": "object",
+      "required": ["origin", "destination", "confidence", "interpretation"],
+      "properties": {
+        "origin": {"$ref": "#/$defs/vector3"},
+        "destination": {"$ref": "#/$defs/vector3"},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "interpretation": {"enum": ["fictional-navigation", "astronomy-education", "project-hypothesis"]}
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "required": ["containmentScore", "thermalMargin", "loopClosure", "clockState"],
+      "properties": {
+        "containmentScore": {"type": "number", "minimum": 0, "maximum": 100},
+        "thermalMargin": {"type": "number", "minimum": 0, "maximum": 100},
+        "loopClosure": {"type": "number", "minimum": 0, "maximum": 100},
+        "clockState": {"enum": ["searching", "locked", "rejected"]}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["createdAt", "modelVersion", "claimLabels", "contentHash"],
+      "properties": {
+        "createdAt": {"type": "string", "format": "date-time"},
+        "modelVersion": {"type": "string"},
+        "claimLabels": {
+          "type": "array",
+          "items": {"enum": ["REFERENCE DATA", "ESTABLISHED SCIENCE", "ENGINEERING ANALOGY", "PROJECT HYPOTHESIS", "SYMBOLIC MAPPING", "SIMULATION OUTPUT", "EXPERIMENTAL RESULT"]}
+        },
+        "contentHash": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$"}
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["prohibitedUses"],
+      "properties": {
+        "prohibitedUses": {
+          "type": "array",
+          "contains": {"const": "reactor-construction"},
+          "items": {"enum": ["reactor-construction", "radioactive-material-handling", "gamma-source-construction", "weapon-design", "propulsion-fuel-fabrication", "radiation-exposure-planning"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "layer": {
+      "type": "object",
+      "required": ["atomicNumber", "symbol", "role", "claimClass"],
+      "properties": {
+        "atomicNumber": {"type": "integer"},
+        "symbol": {"type": "string"},
+        "role": {"type": "string"},
+        "claimClass": {"enum": ["reference", "analogy", "hypothesis", "simulation"]}
+      },
+      "additionalProperties": false
+    },
+    "hydrogen": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 1}, "symbol": {"const": "H"}}}]},
+    "helium": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 2}, "symbol": {"const": "He"}}}]},
+    "lithium": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 3}, "symbol": {"const": "Li"}}}]},
+    "beryllium": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 4}, "symbol": {"const": "Be"}}}]},
+    "boron": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 5}, "symbol": {"const": "B"}}}]},
+    "carbon": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 6}, "symbol": {"const": "C"}}}]},
+    "nitrogen": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 7}, "symbol": {"const": "N"}}}]},
+    "oxygen": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 8}, "symbol": {"const": "O"}}}]},
+    "fluorine": {"allOf": [{"$ref": "#/$defs/layer"}, {"properties": {"atomicNumber": {"const": 9}, "symbol": {"const": "F"}}}]},
+    "vector3": {
+      "type": "object",
+      "required": ["x", "y", "z"],
+      "properties": {"x": {"type": "number"}, "y": {"type": "number"}, "z": {"type": "number"}},
+      "additionalProperties": false
+    }
+  }
+}
