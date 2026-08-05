@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Infinity Quantum Systems V-K-I-As-Li Boron Reader research laboratory and secure-wallet simulation." />
+  <title>Infinity Quantum Systems | Boron Reader Lab</title>
+  <link rel="stylesheet" href="../css/boron-reader-lab.css" />
+</head>
+<body>
+  <header class="hero">
+    <a class="back" href="../index.html">← Quantum Systems</a>
+    <p class="eyebrow">Infinity Research Laboratory</p>
+    <h1>Boron V-K-I-As-Li Reader</h1>
+    <p class="lede">A visual research environment for layered ion-field hypotheses, defect-map reconstruction, robotics, and a cryptographically safe wallet architecture.</p>
+    <div class="status-strip" role="list">
+      <span role="listitem">Reference data</span>
+      <span role="listitem">Hypothesis</span>
+      <span role="listitem">Simulation</span>
+      <span role="listitem">Robot engineering</span>
+      <span role="listitem">Security architecture</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="warning panel">
+      <div>
+        <h2>Research classification</h2>
+        <p>This page preserves the supplied model and provides software simulations. It does not claim that a physical boron memory wallet, invisible private-key reader, or heavy-ion scanner has been experimentally demonstrated.</p>
+      </div>
+      <strong>Use proven cryptography for real assets.</strong>
+    </section>
+
+    <section class="panel controls-panel">
+      <div>
+        <p class="eyebrow">Convergence chamber</p>
+        <h2>Internal Flame + Cosmic Wrapper</h2>
+        <p>Adjust the two model fields and inspect how their assumed interaction changes the simulated layer response.</p>
+      </div>
+      <div class="controls">
+        <label>Internal field <output id="internalOut">62</output><input id="internalField" type="range" min="0" max="100" value="62" /></label>
+        <label>Cosmic field <output id="cosmicOut">54</output><input id="cosmicField" type="range" min="0" max="100" value="54" /></label>
+        <label>Noise <output id="noiseOut">12</output><input id="noise" type="range" min="0" max="50" value="12" /></label>
+        <button id="pulseBtn" type="button">Run alternating scan</button>
+      </div>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel chamber-card">
+        <div class="section-title"><div><p class="eyebrow">Field visualizer</p><h2>Convergence chamber</h2></div><span class="tag hypothesis">Project hypothesis</span></div>
+        <canvas id="fieldCanvas" width="900" height="480" aria-label="Animated field convergence visualization"></canvas>
+      </article>
+
+      <article class="panel stack-card">
+        <div class="section-title"><div><p class="eyebrow">Nano architecture</p><h2>Layer stack</h2></div><span class="tag simulation">Simulation</span></div>
+        <div id="layerStack" class="layer-stack" aria-label="Interactive V K I As Li B layered device"></div>
+        <div id="layerDetails" class="detail-box" aria-live="polite"></div>
+      </article>
+
+      <article class="panel scope-card">
+        <div class="section-title"><div><p class="eyebrow">Waveform</p><h2>Ion pulse scope</h2></div><span class="tag analogy">Engineering analogy</span></div>
+        <canvas id="scopeCanvas" width="900" height="360" aria-label="Alternating ion-field waveform graph"></canvas>
+        <div class="metric-row">
+          <div><span>Phase balance</span><strong id="phaseMetric">0.00</strong></div>
+          <div><span>Field stability</span><strong id="stabilityMetric">0%</strong></div>
+          <div><span>Estimated disturbance</span><strong id="disturbanceMetric">0%</strong></div>
+        </div>
+      </article>
+
+      <article class="panel void-card">
+        <div class="section-title"><div><p class="eyebrow">Structural storage</p><h2>Boron void map</h2></div><span class="tag simulation">Simulated cells</span></div>
+        <p>Tap cells to create or remove simulated voids. The reader reconstructs the map as a binary sequence.</p>
+        <div id="voidGrid" class="void-grid" aria-label="Editable simulated boron void grid"></div>
+        <div class="binary-box"><span>Reconstructed bits</span><code id="binaryOutput"></code></div>
+        <button id="randomizeBtn" class="secondary" type="button">Generate test pattern</button>
+        <button id="clearBtn" class="secondary" type="button">Clear map</button>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-title"><div><p class="eyebrow">Robot engineer</p><h2>Safe scanning station</h2></div><span class="tag established">Conventional engineering</span></div>
+      <div class="robot-layout">
+        <div class="robot-diagram" aria-label="Robotic scan station diagram">
+          <div class="rail"></div><div class="gantry">XYZ GANTRY</div><div class="probe">CAPACITANCE<br />PROBE</div><div class="sample">SEALED SAMPLE</div><div class="estop">E-STOP</div>
+        </div>
+        <div class="checklist">
+          <label><input type="checkbox" checked disabled /> Force-limited docking</label>
+          <label><input type="checkbox" checked disabled /> Low-voltage sensing</label>
+          <label><input type="checkbox" checked disabled /> Thermal monitoring</label>
+          <label><input type="checkbox" checked disabled /> Calibration coupon</label>
+          <label><input type="checkbox" checked disabled /> Signed measurement export</label>
+          <label><input type="checkbox" checked disabled /> Sealed toxic-material boundary</label>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel wallet-panel">
+      <div class="section-title"><div><p class="eyebrow">Boron safe wallet</p><h2>Security architecture</h2></div><span class="tag established">Production requirements</span></div>
+      <div class="security-flow">
+        <div>Passkey</div><span>→</span><div>Secure session</div><span>→</span><div>Hardware keystore</div><span>→</span><div>Authenticated encryption</div><span>→</span><div>Signed transaction</div>
+      </div>
+      <p>The Boron Core is currently a visual authorization map over proven cryptography. Raw private keys must never enter source code, browser localStorage, logs, analytics, or screenshots.</p>
+    </section>
+
+    <section class="panel tutorial-panel">
+      <div class="section-title"><div><p class="eyebrow">Tutorials</p><h2>Learning paths</h2></div></div>
+      <details open><summary>Beginner: read the sequence</summary><p>Vanadium is the trigger, potassium and iodine form an alternating-field analogy, arsenic and lithium form the directional/mobile backbone, and boron is the proposed structural memory layer.</p></details>
+      <details><summary>Engineering: build a safe phantom test</summary><p>Use a harmless dielectric grid with known holes, a low-voltage capacitance probe, an XYZ stage, calibration data, and a comparison between ground truth and reconstructed cells.</p></details>
+      <details><summary>Physics comparison</summary><p>Compare every model prediction against accepted atomic, electrochemical, semiconductor, and materials-science explanations. A useful hypothesis must make measurable predictions that can fail.</p></details>
+      <details><summary>Security: protect real keys</summary><p>Use passkeys, a secure element, authenticated encryption, rate limits, signed audit records, recovery controls, and independent review. Do not rely on obscurity or a visual simulation.</p></details>
+    </section>
+  </main>
+
+  <footer>Infinity Quantum Systems · Boron Reader Laboratory · Research and simulation interface</footer>
+  <script src="../js/boron-reader-lab.js"></script>
+</body>
+</html>
