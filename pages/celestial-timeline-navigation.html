@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive Alpha Beta Gamma Delta celestial timeline and Ytterbium clock simulator." />
+  <title>Celestial Timeline Navigation Laboratory</title>
+  <link rel="stylesheet" href="../css/celestial-timeline-navigation.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Infinity Quantum Systems</p>
+      <h1>Celestial Timeline Navigation Laboratory</h1>
+      <p>Explore the Alpha–Beta–Gamma–Delta coordinate model, moon-anchor proportionality, and a simulated Ytterbium resonance chamber.</p>
+    </div>
+    <div class="status-card">
+      <span>Model status</span>
+      <strong>Speculative simulation</strong>
+      <small>Not a literal time-travel or propulsion system.</small>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel wide">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">Solar clock</p>
+          <h2>Celestial Timeline Schematic</h2>
+        </div>
+        <button id="animateBtn" type="button">Pause orbit</button>
+      </div>
+      <canvas id="solarClock" width="1100" height="560" aria-label="Animated solar clock visualization"></canvas>
+      <div class="legend">
+        <span><i class="alpha"></i>Alpha</span>
+        <span><i class="beta"></i>Beta</span>
+        <span><i class="gamma"></i>Gamma</span>
+        <span><i class="delta"></i>Delta</span>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <p class="eyebrow">Four-point navigator</p>
+        <h2>Coordinate controls</h2>
+        <label>Alpha baseline <input id="alpha" type="range" min="0" max="100" value="12" /></label>
+        <label>Beta active weight <input id="beta" type="range" min="0" max="100" value="58" /></label>
+        <label>Gamma future pull <input id="gamma" type="range" min="0" max="100" value="82" /></label>
+        <label>Delta vector shift <input id="delta" type="range" min="-50" max="50" value="20" /></label>
+        <dl class="readouts">
+          <div><dt>Temporal proximity</dt><dd id="proximity">0%</dd></div>
+          <div><dt>Triangle area</dt><dd id="area">0</dd></div>
+          <div><dt>3D displacement</dt><dd id="displacement">0</dd></div>
+        </dl>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Vector schematic</p>
+        <h2>Alpha–Beta–Gamma–Delta map</h2>
+        <canvas id="vectorMap" width="600" height="420" aria-label="Four point navigation map"></canvas>
+      </article>
+    </section>
+
+    <section class="grid two">
+      <article class="panel">
+        <p class="eyebrow">Moon anchors</p>
+        <h2>Timeline stability experiment</h2>
+        <label>Moon count <input id="moonCount" type="range" min="0" max="80" value="4" /></label>
+        <label>Orbital regularity <input id="regularity" type="range" min="0" max="100" value="72" /></label>
+        <label>Planetary stress <input id="stress" type="range" min="0" max="100" value="24" /></label>
+        <dl class="readouts">
+          <div><dt>Model stability</dt><dd id="stability">0%</dd></div>
+          <div><dt>Duration index</dt><dd id="durationIndex">0</dd></div>
+          <div><dt>Anchor density</dt><dd id="anchorDensity">0</dd></div>
+        </dl>
+        <p class="note">Moon count is a project variable here, not a claim that real moons determine planetary lifespan.</p>
+      </article>
+
+      <article class="panel">
+        <p class="eyebrow">Ytterbium chamber</p>
+        <h2>Clock-lock simulator</h2>
+        <label>Clock stability <input id="ybStability" type="range" min="0" max="100" value="91" /></label>
+        <label>Phase drift <input id="phaseDrift" type="range" min="0" max="100" value="17" /></label>
+        <label>Destination match <input id="destinationMatch" type="range" min="0" max="100" value="79" /></label>
+        <button id="lockBtn" type="button">Attempt chamber lock</button>
+        <div id="lockStatus" class="lock-status" role="status">Chamber idle</div>
+        <canvas id="clockGraph" width="600" height="240" aria-label="Ytterbium clock drift graph"></canvas>
+      </article>
+    </section>
+
+    <section class="panel wide">
+      <p class="eyebrow">Timeline forces</p>
+      <h2>Weight, push, pull, and shift</h2>
+      <canvas id="forcesGraph" width="1100" height="320" aria-label="Timeline forces graph"></canvas>
+    </section>
+
+    <section class="grid three">
+      <article class="panel tutorial"><h3>Alpha</h3><p>Origin, baseline, beginning, or solar reference.</p></article>
+      <article class="panel tutorial"><h3>Beta</h3><p>Present activity, lived processing, and accumulated system weight.</p></article>
+      <article class="panel tutorial"><h3>Gamma</h3><p>Destination, conclusion, future pull, or endpoint marker.</p></article>
+      <article class="panel tutorial"><h3>Delta</h3><p>The fourth coordinate that lifts the flat triangle into a shifted 3D route.</p></article>
+      <article class="panel tutorial"><h3>Ytterbium</h3><p>Established clock research inspires the chamber, while timeline locking remains speculative.</p></article>
+      <article class="panel tutorial"><h3>1947 comparison</h3><p>Historical transistor development and Roswell are shown separately from speculative interpretations.</p></article>
+    </section>
+
+    <section class="panel wide comparison">
+      <div>
+        <p class="eyebrow">Historical record</p>
+        <h2>Documented technology chain</h2>
+        <p>Vacuum tubes, semiconductor theory, Bell Labs transistor work, integrated circuits, software, product design, and global manufacturing form a multinational computing history.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Speculative narrative</p>
+        <h2>1947 coincidence layer</h2>
+        <p>The laboratory may visualize the cultural connection between Roswell and the transistor year without labeling recovered alien technology as established history.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Infinity Quantum Systems · Project hypothesis, geometry, education, and simulation.</p>
+  </footer>
+  <script src="../js/celestial-timeline-navigation.js"></script>
+</body>
+</html>
