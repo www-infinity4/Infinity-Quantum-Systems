@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Harmonic Gas Cycle Laboratory</title>
+  <meta name="description" content="Interactive gas excitation, static potential, volume-key, capture-point, aurora and solar-bubble visualizer." />
+  <link rel="stylesheet" href="../css/harmonic-gas-cycle-lab.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Infinity Quantum Systems · Simulation Laboratory</p>
+    <h1>Harmonic Gas Cycle</h1>
+    <p>Explore quiet and electrified gas states, color signatures, static retention, expansion, return flow, and nested solar territories.</p>
+    <div class="notice"><strong>Research boundary:</strong> this page compares established physics with the Watson Volume-Key hypothesis. It does not demonstrate gas transmutation, unlimited energy, or propulsion.</div>
+  </header>
+
+  <main>
+    <section class="panel controls">
+      <h2>Gas State Controls</h2>
+      <label>Gas
+        <select id="gasSelect">
+          <option value="neon">Neon</option>
+          <option value="argon">Argon</option>
+          <option value="nitrogen">Nitrogen</option>
+          <option value="oxygen">Oxygen</option>
+          <option value="helium">Helium</option>
+          <option value="hydrogen">Hydrogen</option>
+        </select>
+      </label>
+      <label>Electrical excitation <output id="excitationOut">45</output>%
+        <input id="excitation" type="range" min="0" max="100" value="45" />
+      </label>
+      <label>Expansion factor <output id="expansionOut">12</output>×
+        <input id="expansion" type="range" min="1" max="100" value="12" />
+      </label>
+      <label>Charge retention <output id="retentionOut">70</output>%
+        <input id="retention" type="range" min="0" max="100" value="70" />
+      </label>
+      <label>Return pull <output id="returnOut">35</output>%
+        <input id="returnPull" type="range" min="0" max="100" value="35" />
+      </label>
+    </section>
+
+    <section class="dashboard">
+      <article class="panel chamber-panel">
+        <h2>Quiet ↔ Electrified Chamber</h2>
+        <canvas id="gasCanvas" width="760" height="420" aria-label="Animated gas chamber"></canvas>
+        <div class="readouts">
+          <div><span>Stage</span><strong id="stageReadout">Quiet</strong></div>
+          <div><span>Emission</span><strong id="colorReadout">Invisible</strong></div>
+          <div><span>Energy density</span><strong id="densityReadout">0.00</strong></div>
+          <div><span>Capture state</span><strong id="captureReadout">Rising</strong></div>
+        </div>
+      </article>
+
+      <article class="panel">
+        <h2>Color Ladder</h2>
+        <div class="ladder" aria-label="Project color ladder">
+          <div class="step red"><span>Core / Neon-red</span></div>
+          <div class="step green"><span>Intermediate project gate</span></div>
+          <div class="step blue"><span>Argon / outer-jump blue-violet</span></div>
+        </div>
+        <p class="small">Different discharge colors primarily indicate different emission spectra. The ladder is a project visualization, not a claim that one gas becomes another.</p>
+      </article>
+    </section>
+
+    <section class="dashboard">
+      <article class="panel">
+        <h2>Volume-Key Graph</h2>
+        <canvas id="volumeCanvas" width="760" height="320" aria-label="Energy density versus volume graph"></canvas>
+      </article>
+      <article class="panel">
+        <h2>Static Gasket</h2>
+        <div class="capacitor" id="capacitor">
+          <div class="plate negative">−</div>
+          <div class="dielectric"><span id="chargeLabel">Stored tension</span></div>
+          <div class="plate positive">+</div>
+        </div>
+        <button id="dischargeBtn" type="button">Release simulated spark</button>
+        <p id="sparkMessage" class="small">Charge remains below the simulated breakdown threshold.</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Long-Jump / Return-Flow Plot</h2>
+      <canvas id="flowCanvas" width="1100" height="360" aria-label="Outward expansion and return-flow graph"></canvas>
+      <p class="small">The crossing point is a scenario capture point where outward tendency and return pull become equal.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Nested Solar Bubbles</h2>
+      <div class="bubbles">
+        <div class="bubble interstellar"><span>Local interstellar medium</span>
+          <div class="bubble heliopause"><span>Heliopause</span>
+            <div class="bubble termination"><span>Termination shock</span>
+              <div class="bubble heliosphere"><span>Heliosphere</span>
+                <div class="bubble earth"><span>Earth system</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard">
+      <article class="panel">
+        <h2>Lightning vs. Aurora</h2>
+        <table>
+          <thead><tr><th>Event</th><th>Established description</th><th>Project analogy</th></tr></thead>
+          <tbody>
+            <tr><td>Lightning</td><td>Rapid electrical breakdown and charge equalization in the atmosphere.</td><td>A stored-tension pocket reaching its release threshold.</td></tr>
+            <tr><td>Aurora</td><td>Atmospheric atoms and molecules excited by charged particles guided by Earth's magnetic field.</td><td>Visible color checkpoints at a boundary between nested territories.</td></tr>
+          </tbody>
+        </table>
+      </article>
+      <article class="panel">
+        <h2>Safe Harvesting Analogies</h2>
+        <ul>
+          <li>Small triboelectric generators</li>
+          <li>Solar and thermoelectric measurements</li>
+          <li>Piezoelectric vibration capture</li>
+          <li>Atmospheric electric-field logging</li>
+          <li>Low-voltage inductive coupling</li>
+        </ul>
+        <p class="small">All recovered output must be measured against the energy supplied by the environment or operator.</p>
+      </article>
+    </section>
+
+    <section class="panel classification">
+      <h2>Claim Classification</h2>
+      <p><span>Established science</span> Gas-specific spectra, charge imbalance, energy transfer, auroral excitation, heliospheric boundaries.</p>
+      <p><span>Engineering analogy</span> Static gasket, rechargeable gas, color ladder, long-jump chart.</p>
+      <p><span>Project hypothesis</span> One harmonic gas cycle underlying named gases; cooling as expansion alone; elemental territories as stages of one energy.</p>
+    </section>
+  </main>
+
+  <script src="../js/harmonic-gas-cycle-lab.js"></script>
+</body>
+</html>
