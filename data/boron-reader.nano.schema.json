@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://infinity.example/schemas/boron-reader.nano.schema.json",
+  "title": "Infinity Boron V-K-I-As-Li Reader Nano Schema",
+  "description": "Research and simulation schema. This does not certify a working physical wallet or ion reader.",
+  "type": "object",
+  "required": ["projectId", "classification", "layers", "scan", "walletSecurity", "safety"],
+  "properties": {
+    "projectId": { "type": "string", "pattern": "^[a-z0-9-]{3,80}$" },
+    "version": { "type": "string", "default": "0.1.0-research" },
+    "classification": {
+      "type": "array",
+      "items": {
+        "enum": ["reference-data", "established-science", "engineering-analogy", "project-hypothesis", "simulation-model", "symbolic-mapping", "experimental-result"]
+      },
+      "minItems": 1
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["order", "symbol", "atomicNumber", "role", "physicalStatus"],
+        "properties": {
+          "order": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "symbol": { "enum": ["V", "K", "I", "As", "Li", "B"] },
+          "atomicNumber": { "enum": [23, 19, 53, 33, 3, 5] },
+          "role": { "type": "string", "minLength": 3 },
+          "thicknessNm": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+          "physicalStatus": { "enum": ["concept-only", "simulation-only", "candidate-material", "bench-tested", "validated"] },
+          "hazards": { "type": "array", "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scan": {
+      "type": "object",
+      "required": ["method", "voltageLimited", "beamFree", "sampleSealed"],
+      "properties": {
+        "method": { "enum": ["capacitance", "impedance", "optical", "simulation", "other"] },
+        "positiveAmplitude": { "type": "number", "minimum": 0 },
+        "negativeAmplitude": { "type": "number", "minimum": 0 },
+        "phaseDegrees": { "type": "number", "minimum": 0, "maximum": 360 },
+        "frequencyHz": { "type": "number", "minimum": 0 },
+        "temperatureC": { "type": "number", "minimum": -273.15 },
+        "noiseCoefficient": { "type": "number", "minimum": 0, "maximum": 1 },
+        "voltageLimited": { "const": true },
+        "beamFree": { "const": true },
+        "sampleSealed": { "const": true },
+        "calibrationId": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "boronMap": {
+      "type": "object",
+      "properties": {
+        "rows": { "type": "integer", "minimum": 1, "maximum": 1024 },
+        "columns": { "type": "integer", "minimum": 1, "maximum": 1024 },
+        "cells": { "type": "array", "items": { "type": "integer", "minimum": 0, "maximum": 1 } },
+        "source": { "enum": ["simulated", "phantom-measurement", "microscopy-import"] },
+        "checksum": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "robot": {
+      "type": "object",
+      "properties": {
+        "axes": { "type": "integer", "minimum": 0, "maximum": 6 },
+        "forceLimitN": { "type": "number", "minimum": 0 },
+        "emergencyStop": { "type": "boolean" },
+        "thermalMonitoring": { "type": "boolean" },
+        "signedExport": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "walletSecurity": {
+      "type": "object",
+      "required": ["realKeyStorage", "authenticatedEncryption", "passkeySupported", "localStorageForbidden", "independentReviewRequired"],
+      "properties": {
+        "realKeyStorage": { "enum": ["hardware-secure-element", "os-keystore", "test-only-no-real-key"] },
+        "authenticatedEncryption": { "const": true },
+        "passkeySupported": { "const": true },
+        "localStorageForbidden": { "const": true },
+        "rawKeyExportAllowed": { "const": false },
+        "independentReviewRequired": { "const": true },
+        "boronVisualizationRole": { "enum": ["authorization-map", "research-display", "disabled"] }
+      },
+      "additionalProperties": false
+    },
+    "safety": {
+      "type": "object",
+      "required": ["arsenicPhysicalUse", "reactiveIonBeam", "radiationSource", "professionalReview"],
+      "properties": {
+        "arsenicPhysicalUse": { "enum": ["prohibited-in-consumer-prototype", "licensed-lab-only"] },
+        "reactiveIonBeam": { "const": false },
+        "radiationSource": { "const": false },
+        "professionalReview": { "const": true },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "createdBy": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "sourceSequence": { "const": "V-K-I-As-Li-B" },
+        "contentHash": { "type": "string" },
+        "signature": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
