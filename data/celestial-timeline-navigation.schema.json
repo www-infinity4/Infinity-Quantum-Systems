@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://infinity.example/schemas/celestial-timeline-navigation.schema.json",
+  "title": "Celestial Timeline Navigation Scenario",
+  "type": "object",
+  "required": ["scenarioId", "coordinates", "moonModel", "ytterbiumChamber", "claimLabels", "provenance"],
+  "properties": {
+    "scenarioId": {"type": "string", "pattern": "^[a-z0-9-]{3,80}$"},
+    "title": {"type": "string", "maxLength": 160},
+    "coordinates": {
+      "type": "object",
+      "required": ["alpha", "beta", "gamma", "delta"],
+      "properties": {
+        "alpha": {"type": "number", "minimum": 0, "maximum": 100},
+        "beta": {"type": "number", "minimum": 0, "maximum": 100},
+        "gamma": {"type": "number", "minimum": 0, "maximum": 100},
+        "delta": {"type": "number", "minimum": -50, "maximum": 50}
+      },
+      "additionalProperties": false
+    },
+    "moonModel": {
+      "type": "object",
+      "required": ["count", "orbitalRegularity", "planetaryStress"],
+      "properties": {
+        "count": {"type": "integer", "minimum": 0, "maximum": 200},
+        "orbitalRegularity": {"type": "number", "minimum": 0, "maximum": 100},
+        "planetaryStress": {"type": "number", "minimum": 0, "maximum": 100},
+        "stabilityIndex": {"type": "number", "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "ytterbiumChamber": {
+      "type": "object",
+      "required": ["clockStability", "phaseDrift", "destinationMatch", "lockState"],
+      "properties": {
+        "clockStability": {"type": "number", "minimum": 0, "maximum": 100},
+        "phaseDrift": {"type": "number", "minimum": 0, "maximum": 100},
+        "destinationMatch": {"type": "number", "minimum": 0, "maximum": 100},
+        "lockState": {"enum": ["idle", "warning", "locked"]}
+      },
+      "additionalProperties": false
+    },
+    "memoryMetalBridge": {
+      "type": "object",
+      "properties": {
+        "alloyStateId": {"type": "string", "maxLength": 100},
+        "rememberedVector": {
+          "type": "array",
+          "items": {"type": "number"},
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "transitionProgress": {"type": "number", "minimum": 0, "maximum": 1},
+        "hysteresisIndex": {"type": "number", "minimum": 0, "maximum": 100},
+        "recoveryState": {"enum": ["untrained", "training", "remembered", "recovering", "stable"]}
+      },
+      "additionalProperties": false
+    },
+    "claimLabels": {
+      "type": "array",
+      "items": {"enum": ["ESTABLISHED_REFERENCE", "PROJECT_HYPOTHESIS", "GEOMETRIC_ANALOGY", "SIMULATION_OUTPUT", "HISTORICAL_RECORD", "SPECULATIVE_NARRATIVE"]},
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["createdAt", "version"],
+      "properties": {
+        "createdAt": {"type": "string", "format": "date-time"},
+        "version": {"type": "string", "maxLength": 40},
+        "contentHash": {"type": "string", "maxLength": 160},
+        "sourceRepository": {"type": "string", "maxLength": 160}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
