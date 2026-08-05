@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Harmonic Gas Cycle Scenario",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scenarioId", "createdAt", "author", "claimClass", "gasState", "volumeKey", "staticGasket", "flowModel"],
+  "properties": {
+    "scenarioId": {"type": "string", "minLength": 8, "maxLength": 128},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "author": {"type": "string", "minLength": 1, "maxLength": 120},
+    "sourceNotes": {"type": "string", "maxLength": 5000},
+    "claimClass": {
+      "type": "string",
+      "enum": ["reference-data", "established-science", "observation", "engineering-analogy", "project-hypothesis", "symbolic-mapping", "simulation-output", "experimental-result", "fictional-narrative"]
+    },
+    "gasState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["gas", "stage", "excitationPercent", "expansionFactor", "displayColor"],
+      "properties": {
+        "gas": {"type": "string", "enum": ["neon", "argon", "nitrogen", "oxygen", "helium", "hydrogen", "custom"]},
+        "stage": {"type": "string", "enum": ["quiet", "electrified", "relaxing", "returning"]},
+        "excitationPercent": {"type": "number", "minimum": 0, "maximum": 100},
+        "expansionFactor": {"type": "number", "minimum": 1, "maximum": 1000000},
+        "displayColor": {"type": "string", "pattern": "^#[0-9A-Fa-f]{6}$"}
+      }
+    },
+    "volumeKey": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inputEnergy", "occupiedVolume", "energyDensity", "modelStatus"],
+      "properties": {
+        "inputEnergy": {"type": "number", "minimum": 0},
+        "occupiedVolume": {"type": "number", "exclusiveMinimum": 0},
+        "energyDensity": {"type": "number", "minimum": 0},
+        "modelStatus": {"type": "string", "enum": ["analogy", "simulation", "measured"]},
+        "uncertainty": {"type": "number", "minimum": 0}
+      }
+    },
+    "staticGasket": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["retentionPercent", "leakagePercent", "breakdownThreshold", "discharged"],
+      "properties": {
+        "retentionPercent": {"type": "number", "minimum": 0, "maximum": 100},
+        "leakagePercent": {"type": "number", "minimum": 0, "maximum": 100},
+        "breakdownThreshold": {"type": "number", "minimum": 0},
+        "discharged": {"type": "boolean"},
+        "symbolicSequence": {"type": "string", "enum": ["9-10", "none"]}
+      }
+    },
+    "flowModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outwardTendency", "returnPull", "capturePoint", "territoryScale"],
+      "properties": {
+        "outwardTendency": {"type": "number", "minimum": 0},
+        "returnPull": {"type": "number", "minimum": 0},
+        "capturePoint": {"type": "number", "minimum": 0},
+        "territoryScale": {"type": "string", "enum": ["laboratory", "atmospheric", "planetary", "heliospheric", "conceptual"]},
+        "boundaryName": {"type": "string", "maxLength": 120}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dataset": {"type": "string", "maxLength": 500},
+        "instrument": {"type": "string", "maxLength": 500},
+        "calibrationRecord": {"type": "string", "maxLength": 500},
+        "contentHash": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"}
+      }
+    }
+  }
+}
