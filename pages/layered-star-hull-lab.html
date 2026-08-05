@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Layered Star Hull & Ytterbium Gamma-Vector Lab</title>
+  <meta name="description" content="Interactive simulation of the Infinity layered star hull and Ytterbium gamma-vector framework." />
+  <link rel="stylesheet" href="../css/layered-star-hull-lab.css" />
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Infinity Quantum Systems · Simulation Laboratory</p>
+    <h1>Layered Star Hull</h1>
+    <p>Explore a nested 1–9 synthetic-star craft, Ytterbium timing lock, gamma-vector navigation, and Möbius pathfinding.</p>
+    <div class="warning">Simulation only. This page is not a reactor, radiation-source, propulsion, or weapons construction guide.</div>
+  </header>
+
+  <main>
+    <section class="dashboard">
+      <article class="panel hull-panel">
+        <div class="panel-head"><h2>1–9 Hull Visualizer</h2><span>ENGINEERING ANALOGY</span></div>
+        <div class="hull-stage">
+          <div id="hull" class="hull" aria-label="Nested elemental hull layers"></div>
+        </div>
+        <div id="layerLegend" class="legend"></div>
+      </article>
+
+      <article class="panel controls-panel">
+        <div class="panel-head"><h2>Control Console</h2><span>SIMULATION OUTPUT</span></div>
+        <label>Core intensity <output id="coreOut">52</output><input id="core" type="range" min="0" max="100" value="52" /></label>
+        <label>Boron throttle <output id="boronOut">48</output><input id="boron" type="range" min="0" max="100" value="48" /></label>
+        <label>Carbon heat spread <output id="carbonOut">72</output><input id="carbon" type="range" min="0" max="100" value="72" /></label>
+        <label>Field skin <output id="fieldOut">44</output><input id="field" type="range" min="0" max="100" value="44" /></label>
+        <label>Ytterbium stability <output id="ybOut">86</output><input id="yb" type="range" min="0" max="100" value="86" /></label>
+        <button id="lockBtn" type="button">Lock Infinity Vector</button>
+        <dl class="metrics">
+          <div><dt>Containment</dt><dd id="containment">0%</dd></div>
+          <div><dt>Thermal margin</dt><dd id="thermal">0%</dd></div>
+          <div><dt>Clock lock</dt><dd id="clock">SEARCHING</dd></div>
+          <div><dt>Loop closure</dt><dd id="loop">0%</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="panel charts-panel">
+      <div class="panel-head"><h2>Energy Gradient & Containment</h2><span>PROJECT MODEL</span></div>
+      <canvas id="gradientChart" width="1100" height="300" aria-label="Layer energy and containment graph"></canvas>
+    </section>
+
+    <section class="dashboard">
+      <article class="panel star-panel">
+        <div class="panel-head"><h2>Gamma-Vector Star Chart</h2><span>SPECULATIVE NAVIGATION</span></div>
+        <canvas id="starChart" width="700" height="520"></canvas>
+        <p>Tap the chart to move the destination vector. The trail, origin pulse, Ytterbium shield, and loop route are illustrative.</p>
+      </article>
+
+      <article class="panel alert-panel">
+        <div class="panel-head"><h2>Ship Alert Console</h2><span>FICTIONAL SYSTEM</span></div>
+        <div id="alertOrb" class="alert-orb"></div>
+        <h3 id="alertTitle">Vector not locked</h3>
+        <p id="alertText">Balance the hull and increase Ytterbium stability before requesting an Infinity-loop lock.</p>
+        <ol id="eventLog" class="event-log"></ol>
+      </article>
+    </section>
+
+    <section class="panel tutorial-panel">
+      <div class="panel-head"><h2>Tutorials</h2><span>REFERENCE & HYPOTHESIS</span></div>
+      <details open><summary>How the inner core is represented</summary><p>Hydrogen, helium, and lithium form a conceptual source-buffer-transition stack. The lab turns that sequence into visual scores rather than physical reactor calculations.</p></details>
+      <details><summary>Why layers 4–6 matter</summary><p>Beryllium is shown as a reflector analogy, boron as the control layer, and carbon as the structural and thermal hull. Real material behavior depends on form, temperature, impurities, irradiation, interfaces, and manufacturing.</p></details>
+      <details><summary>How layers 7–9 are treated</summary><p>Nitrogen, oxygen, and fluorine are represented as field or plasma-boundary concepts. The site does not recommend storing reactive fluorine gas or constructing an energized plasma vessel.</p></details>
+      <details><summary>What Ytterbium contributes</summary><p>Ytterbium provides the precision-clock inspiration. Timeline interception and planet-saving loops remain project hypotheses and science-fiction world mechanics.</p></details>
+      <details><summary>Civilization inside a loop</summary><p>The scenario explorer treats an Infinity loop as continuous environmental renewal, archival memory, reversible decisions, and resource recirculation—not literal immortality.</p></details>
+    </section>
+  </main>
+
+  <script src="../js/layered-star-hull-lab.js"></script>
+</body>
+</html>
