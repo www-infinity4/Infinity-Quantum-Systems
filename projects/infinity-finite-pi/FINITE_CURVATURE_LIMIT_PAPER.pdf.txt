@@ -1,0 +1,10 @@
+The original PDF source for The Finite Curvature Limit (FCL): A Physical Boundary of Ideal Geometry was uploaded by Kris Watson on 2026-08-05. Binary PDF archival is tracked separately from this text note.
+
+Suggested citation from the paper:
+
+Watson, K. J. (2025). The Finite Curvature Limit (FCL): A Physical Boundary of Ideal Geometry. Concept refinement supported by ChatGPT (OpenAI) and Gemini (Google DeepMind).
+
+Core distinction:
+
+- Pi remains an exact mathematical constant.
+- FCL is a proposed system-specific physical cutoff where ideal geometry or coherent vibration no longer accurately models measured behavior.
