@@ -23,7 +23,8 @@ A full-stack concept platform and interactive lab for exploring resonance-based 
 13. [Data Layer](#data-layer)
 14. [UX Delivery Pattern](#ux-delivery-pattern)
 15. [Implementation Blueprint](#implementation-blueprint)
-16. [Safety Notice](#safety-notice)
+16. [Static Coherence RF Control](#static-coherence-rf-control)
+17. [Safety Notice](#safety-notice)
 
 ---
 
@@ -271,6 +272,24 @@ Covered by the files in [`tools/`](tools/) — see [Interactive Tools & Signal A
 - Drag-and-drop device stack builder
 - Lithium (3) / Family (15) encryption layer — materialises stacked matter only for holders of the 53 (God) key
 - 1:26 Heirloom flash protocol — Beryllium core initialisation sequence
+
+---
+
+## Static Coherence RF Control
+
+Static Coherence extends Resonant OS with an AI-governed, measurement-first environmental RF control layer. It connects the Alpha–Beta–Gamma sensor triangle, 1.1.4 Phonon Trace, 141 AI master node, 84 safety lock, lawful source controls, passive routing/absorption, and protected-zone verification.
+
+The engineering design preserves the tree-cloud distributed-capture analogy while separating established electromagnetic behavior from exploratory hypotheses. It is simulation-first, excludes hazardous materials and signal jamming, and requires calibrated before/after measurements for every claimed effect.
+
+Read the complete design: [`docs/static-coherence-rf-control.md`](docs/static-coherence-rf-control.md).
+
+## Integration points
+
+- **Learn:** explain sensing, absorption, redirection, uncertainty, and experimental evidence.
+- **Experiment:** compare empty-fixture, sham, passive canopy, and single-panel controls.
+- **Simulate:** model Alpha–Beta–Gamma field maps and phase-aware passive surfaces.
+- **Activate:** permit only user-approved device settings and reversible wired-routing controls.
+- **Reference:** record calibration, safety limits, raw readings, and immutable experiment logs.
 
 ---
 
